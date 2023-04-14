@@ -13,12 +13,12 @@ public class BuffManager : MonoBehaviour
     private float _DamageMult = 1f;
 
     [SerializeField]
-    public float HeatLossMult { get { return _HeatLossMult; } }
-    private float _HeatLossMult = 1f;
+    public float HealthMult { get { return _HealthMult; } }
+    private float _HealthMult = 1f;
 
     [SerializeField]
-    public float CritMult { get { return _HeatLossMult; } }
-    private float _CritMult = 1f;
+    public float ArmorMult { get { return _ArmorMult; } }
+    private float _ArmorMult = 1f;
 
     [SerializeField]
     public List<IBuffInterface> Buffs { get { return _buffs; } }
@@ -31,7 +31,8 @@ public class BuffManager : MonoBehaviour
 
         _DamageMult += buff.DamageMult;
         _SpeedMult += buff.SpeedMult;
-        _HeatLossMult += buff.HeatLossMult;
+        _HealthMult += buff.HealthMult;
+        _ArmorMult += buff.ArmorMult;
 
         Debug.Log("Buff Added");
 
@@ -43,8 +44,9 @@ public class BuffManager : MonoBehaviour
         _buffs.Remove(buff);
 
         _DamageMult -= buff.DamageMult;
-        _SpeedMult -= buff.SpeedMult;
-        _HeatLossMult -= buff.HeatLossMult;
+        _SpeedMult  -= buff.SpeedMult;
+        _HealthMult -= buff.HealthMult;
+        _ArmorMult  -= buff.ArmorMult;
 
         Debug.Log("Buff Removed");
 

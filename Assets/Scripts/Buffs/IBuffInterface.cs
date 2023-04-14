@@ -4,11 +4,10 @@ using UnityEngine;
 
 public abstract class IBuffInterface : MonoBehaviour
 {
-
+    public virtual float SpeedMult  { get => 0f; }
     public virtual float DamageMult { get => 0f; }
-    public virtual float SpeedMult { get => 0f; }
-    public virtual float HeatLossMult { get => 0f; }
-    public virtual float DefenceMult { get => 0f; }
+    public virtual float HealthMult { get => 0f; }
+    public virtual float ArmorMult  { get => 0f; }
 
     public abstract string Name { get; }
     public abstract string Description { get; }
@@ -46,6 +45,11 @@ public abstract class IBuffInterface : MonoBehaviour
     }
 
     public virtual void OnEnemyDamaged(GameObject enemy) 
+    {
+
+    }
+
+    public virtual void OnEnemyKilled(GameObject enemy)
     {
 
     }
