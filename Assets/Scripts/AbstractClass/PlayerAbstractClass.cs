@@ -12,9 +12,9 @@ public abstract class Player : MonoBehaviour
     [Space(10)]
     #endregion
     #region Vector2Var
-    Vector2 movement;
-    Vector2 mousePos;
-    Vector2 lookDir;
+    [HideInInspector] public Vector2 movement;
+    [HideInInspector] public Vector2 mousePos;
+    [HideInInspector] public Vector2 lookDir;
     #endregion
     #region FloatVar
     [Header("PlayerVariables")]
@@ -24,12 +24,11 @@ public abstract class Player : MonoBehaviour
     [Space(10)]
     private float keptSpeed;
     #endregion
-    #region BoolVar
-    private bool
-        m1,
-        m2;
+    #region RosemaryMeter
+    float maxSpice = 10;
+    float currentSpice = 10;
     #endregion
-    
+
     public virtual void Awake()
     {
         #region SetComponents
@@ -43,9 +42,6 @@ public abstract class Player : MonoBehaviour
     public virtual void Update()
     {
         #region Inputs
-        m1 = Input.GetMouseButtonDown(0);
-        m2 = Input.GetMouseButtonDown(1);
-
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
