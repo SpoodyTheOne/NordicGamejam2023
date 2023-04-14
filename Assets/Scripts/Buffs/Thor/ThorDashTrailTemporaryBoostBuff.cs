@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
 
 public class ThorDashTrailTemporaryBoostBuff : IBuffInterface
 {
@@ -26,7 +25,6 @@ public class ThorDashTrailTemporaryBoostBuff : IBuffInterface
         if (lastSpawn < Time.time) {
 
             lastSpawn = Time.time + 0.04f;
-            PhotonNetwork.Instantiate("ThorDashTrailDamager",transform.position,Quaternion.identity);
 
         }
 

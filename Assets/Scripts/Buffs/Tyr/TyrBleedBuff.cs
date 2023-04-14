@@ -37,10 +37,7 @@ public class TyrBleedBuff : IBuffInterface
 
     public override void OnEnemyDamaged(GameObject enemy)
     {
-        if (enemy.GetComponents<TyrBleedEffect>().Length < 3) {
-            TyrBleedEffect bleed = enemy.AddComponent<TyrBleedEffect>();
-            bleed.origin = GetComponent<BuffManager>();
-        }
+
     }
 
 }

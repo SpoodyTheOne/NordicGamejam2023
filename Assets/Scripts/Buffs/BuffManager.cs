@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
 
 public class BuffManager : MonoBehaviour
 {
@@ -105,18 +104,4 @@ public class BuffManager : MonoBehaviour
 
         return null;
     }
-
-    public void AddBuffRPC(IBuffInterface buff) {
-
-        GetComponent<PhotonView>().RPC("RPC_AddBuffRPC",RpcTarget.AllBuffered,buff);
-
-    }
-
-    [PunRPC]
-    void RPC_AddBuffRPC(IBuffInterface buff) {
-
-        gameObject.AddComponent(buff.GetType());
-
-    }
-
 }

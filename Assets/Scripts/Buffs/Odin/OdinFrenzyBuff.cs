@@ -54,7 +54,7 @@ public class OdinFrenzyBuff : IBuffInterface
             {
                 IBuffInterface frenzy = new OdinFrenzyTemporaryBoostBuff();
 
-                buffManager.AddBuffRPC(frenzy);
+                // buffManager.AddBuffRPC(frenzy);
 
                 Destroy(frenzy);
             }

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
 
 public class FrejaArrowBuff : IBuffInterface
 {
@@ -38,10 +37,7 @@ public class FrejaArrowBuff : IBuffInterface
 
     public override void OnEnemyDamaged(GameObject enemy)
     {
-
         Debug.Log("MAking le arro");
-        GameObject arrow = PhotonNetwork.Instantiate("FrejaArrow",transform.position + new Vector3(0,3,0),Quaternion.identity);
-        arrow.GetComponent<FrejaArrow>().target = enemy.transform;
     }
 
 }

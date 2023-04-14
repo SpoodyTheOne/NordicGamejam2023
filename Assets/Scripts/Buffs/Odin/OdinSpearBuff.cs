@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
 
 public class OdinSpearBuff : IBuffInterface
 {
@@ -44,9 +43,6 @@ public class OdinSpearBuff : IBuffInterface
             return;
 
         lastSpear = Time.time + 1f;
-
-        FrejaArrow arrow = PhotonNetwork.Instantiate("Gungnir",transform.position + new Vector3(0,4,0),Quaternion.identity).GetComponent<FrejaArrow>();
-        arrow.target = enemy.transform;
     }
 
 }

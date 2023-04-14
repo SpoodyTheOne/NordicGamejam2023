@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
 
 public class OdinFrenzyTemporaryBoostBuff : IBuffInterface
 {
@@ -23,7 +22,7 @@ public class OdinFrenzyTemporaryBoostBuff : IBuffInterface
         PC.SetGhostType(1);
         PC.EnableGhost();
 
-        PhotonNetwork.Instantiate("OdinFrenzyRune",transform.position,Quaternion.identity);
+        // PhotonNetwork.Instantiate("OdinFrenzyRune",transform.position,Quaternion.identity);
     }
 
     void Update() {
