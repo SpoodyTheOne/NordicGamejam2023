@@ -657,7 +657,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1218736940
 Transform:
   m_ObjectHideFlags: 0
@@ -883,6 +883,8 @@ MonoBehaviour:
   - {fileID: 628258115}
   - {fileID: 1218736939}
   timeForFly: {fileID: 1000538368}
+  fx:
+  - {fileID: 2920213201490609288, guid: 3efd4de9cb7db644b83cc1bddac9c199, type: 3}
 --- !u!4 &5517504704217387875
 Transform:
   m_ObjectHideFlags: 0
