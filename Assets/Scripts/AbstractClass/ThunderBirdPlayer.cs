@@ -50,8 +50,6 @@ public class ThunderBirdPlayer : Player
             float valueToLerp = Mathf.Lerp(0, 1, timeElapsed / flyTime);
             timeElapsed += Time.deltaTime;
             timeForFly.fillAmount = timeElapsed;
-
-            Mathf.Lerp(birdSpeed, speed * 4, timeElapsed / flyTime);
         }
 
         playerForms[1].SetActive(true);
