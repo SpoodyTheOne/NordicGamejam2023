@@ -14,8 +14,7 @@ public abstract class IHurter : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (((1<<other.gameObject.layer) & ignoreLayers) == 0) // Check if part of canHit layermask
-
+        if (((1<<other.gameObject.layer) & canHit) == 0) // Check if part of canHit layermask
             return;
 
         IDamagable otherDamagable = other.GetComponent<IDamagable>();
