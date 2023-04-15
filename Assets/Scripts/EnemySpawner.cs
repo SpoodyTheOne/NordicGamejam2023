@@ -18,7 +18,7 @@ public class EnemySpawner : MonoBehaviour
         if (room)
             room.OnEnemySpawned();
 
-        SpawnEffect.play();
+        SpawnEffect.Play();
     }
 
     void OnEnemyDied(GameObject enemy)
