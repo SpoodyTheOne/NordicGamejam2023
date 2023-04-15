@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5657614539689954683}
   - component: {fileID: 48492965934793602}
   - component: {fileID: 4455239259049532806}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Lillefyr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,6 +169,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f784d4b11bb6048a8c50b050344fde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _Health: 20
+  _Dead: 0
+  IFrameSeconds: 0.6
   aIPathScript: {fileID: 4867512016125991653}
   desiredDistanceToPlayer: 2
   timeTillMoveAgain: 0
@@ -187,7 +190,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3152274800110908263}
   - component: {fileID: 3213781896652854206}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,7 +274,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6042295292849393328}
   - component: {fileID: 625416738932648629}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SpriteRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -355,7 +358,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7889885492520236418}
   - component: {fileID: 2572074794753719109}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Instantiater
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -406,7 +409,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7862553622321550062}
   - component: {fileID: 5751764869361238494}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ProjectileInstantiater
   m_TagString: Untagged
   m_Icon: {fileID: 0}

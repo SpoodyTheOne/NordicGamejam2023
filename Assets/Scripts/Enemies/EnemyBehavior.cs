@@ -94,4 +94,11 @@ public class EnemyBehavior : IDamagable
         destinationSetter.target = currentPlayerToTarget.transform;
         ptt.target = currentPlayerToTarget.transform;
     }
+
+    public override void Die()
+    {
+        base.Die();
+
+        Destroy(gameObject);
+    }
 }
