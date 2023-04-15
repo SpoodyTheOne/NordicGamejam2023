@@ -7,10 +7,13 @@ public abstract class IDamagable : MonoBehaviour
     public float Health { get => _Health; }
     public bool Dead   { get => _Dead;  }
 
+    [SerializeField]
     protected float _Health  = 1f;
+    [SerializeField]
     protected bool  _Dead    = false;
 
     protected float IFrameTime    = 0.0f;
+    [SerializeField]
     protected float IFrameSeconds = 0.6f;
     protected bool UseHearts      = false;
 
