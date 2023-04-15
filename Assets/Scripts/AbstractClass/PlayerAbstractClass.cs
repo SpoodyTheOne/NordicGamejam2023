@@ -28,10 +28,14 @@ public abstract class Player : MonoBehaviour
     float maxSpice = 10;
     float currentSpice = 10;
     #endregion
+    [HideInInspector] public Animator anim;
+    public ParticleSystem pfx;
 
     public virtual void Awake()
     {
         #region SetComponents
+
+        anim = GetComponent<Animator>();
 
         playerSprite = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
@@ -46,6 +50,15 @@ public abstract class Player : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");
 
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        #endregion
+        #region Animation
+        if (movement.magnitude > 0)
+            anim.SetBool("Walking", true);
+        else
+        {
+            pfx.loop = false;
+            anim.SetBool("Walking", false);
+        }
         #endregion
     }
 
