@@ -127,7 +127,6 @@ GameObject:
   - component: {fileID: 4438699611268917119}
   - component: {fileID: 8220957878969899974}
   - component: {fileID: 539318851905982000}
-  - component: {fileID: 4449862380920203913}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -305,7 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da0d4248992b48f899611c4ff1445f4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
+  Damage: 1
   canHit:
     serializedVersion: 2
     m_Bits: 64
@@ -330,19 +329,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4449862380920203913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8232173330571013332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0939e9096a2d71b5904743d264e3ec8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Damage: 1
-  canHit:
-    serializedVersion: 2
-    m_Bits: 64

@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 245168693}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.507, z: 0}
+  m_LocalPosition: {x: 0, y: 0.507, z: -1}
   m_LocalScale: {x: 1, y: 0.027344061, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -232,7 +232,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300455233}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.496, z: 0}
+  m_LocalPosition: {x: 0, y: -0.496, z: -1}
   m_LocalScale: {x: 1, y: 0.027344061, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -325,7 +325,10 @@ MonoBehaviour:
   RoomExit: {fileID: 0}
   RoomEntrance: {fileID: 0}
   Waves:
-  - Enemies: []
+  - Enemies:
+    - {fileID: 218800462860319156, guid: ac68fc75da3dd6743813de0b9bb06c7e, type: 3}
+  - Enemies:
+    - {fileID: 218800462860319156, guid: ac68fc75da3dd6743813de0b9bb06c7e, type: 3}
 --- !u!212 &778445352
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -426,6 +429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: {fileID: 0}
+  SpawnEffect: {fileID: 0}
   room: {fileID: 778445351}
 --- !u!212 &1401598329
 SpriteRenderer:
