@@ -6,12 +6,12 @@ using UnityEngine;
 public struct wave
 {
     [SerializeField]
-    List<GameObject> Enemies;
+    public List<GameObject> Enemies;
 }
 
 public class RoomController : MonoBehaviour
 {
-    public List<GameObject> EnemySpawners;
+    public List<EnemySpawner> EnemySpawners;
 
     public GameObject RoomExit;
     public GameObject RoomEntrance;
@@ -20,13 +20,15 @@ public class RoomController : MonoBehaviour
     public List<wave> Waves;
 
     private int EnemiesAlive = 0;
+    private int _Wave;
+    public int Wave { get => _Wave; }
 
     public void OnEnemyDied()
     {
         EnemiesAlive--;
 
-        if (EnemiesAlive == 0);
-            // coroutine;
+        if (EnemiesAlive == 0)
+            NextWave();
     }
 
     public void OnEnemySpawned()
@@ -36,7 +38,8 @@ public class RoomController : MonoBehaviour
 
     public void OnRoomEnter()
     {
-        // coroutine;
+        RoomEntrance.SetActive(true);
+        NextWave();
     }
 
     // Start is called before the first frame update
@@ -48,6 +51,37 @@ public class RoomController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+    
+    }
+
+    void NextWave()
+    {
+        if (_Wave >= Waves.Count) {
+            RoomExit.SetActive(false);
+            RoomEntrance.SetActive(false);
+            return;
+        }
+
+        _Wave++;
+
+        StartCoroutine("NextWaveCoroutine");
+    }
+
+    IEnumerator NextWaveCoroutine()
+    {
+        yield return new WaitForSeconds(1f);
+
+        int EnemiesSpawned = 0;
+
+        while (EnemiesSpawned < Waves[_Wave].Enemies.Count)
+        {
+            int spawnerIndex = EnemiesSpawned % EnemySpawners.Count;
+
+            EnemySpawners[spawnerIndex].Spawn( Waves[_Wave].Enemies[EnemiesSpawned++] );
+
+            yield return new WaitForSeconds(0.2f);
+        }
+
+        yield return null;
     }
 }

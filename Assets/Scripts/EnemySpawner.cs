@@ -5,9 +5,11 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject Enemy;
+    [SerializeField]
+    public ParticleSystem SpawnEffect;
     public RoomController room;
 
-    void Spawn(GameObject enemy = null)
+    public void Spawn(GameObject enemy = null)
     {
         GameObject newEnemy = Instantiate(enemy != null ? enemy : Enemy, transform.position, Quaternion.identity);
         
@@ -15,6 +17,8 @@ public class EnemySpawner : MonoBehaviour
 
         if (room)
             room.OnEnemySpawned();
+
+        SpawnEffect.play();
     }
 
     void OnEnemyDied(GameObject enemy)
