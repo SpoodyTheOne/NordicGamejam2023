@@ -18,6 +18,9 @@ public class GamepadCursor : MonoBehaviour
     [SerializeField]
     private float cursorSpeed = 1000f;
 
+    public bool menuCursor;
+
+    private bool previousMouseState;
     private Mouse virtualMouse;
     private Camera mainCamera;
 
@@ -71,6 +74,11 @@ public class GamepadCursor : MonoBehaviour
 
         InputState.Change(virtualMouse.position, newPosition);
         InputState.Change(virtualMouse.delta, deltaValue);
+
+        if(previousMouseState != Gamepad.current.aButton.isPressed)
+        {
+            virtualMouse.CopyState<MouseState>(out var MouseState);
+        }
 
         AnchorCursor(newPosition);
     }
