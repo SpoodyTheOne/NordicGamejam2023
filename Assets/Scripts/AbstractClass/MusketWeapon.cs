@@ -1,6 +1,7 @@
 
 using UnityEngine;
 using EZCameraShake;
+using UnityEngine.InputSystem;
 
 public class MusketWeapon : Weapon
 {
@@ -46,5 +47,23 @@ public class MusketWeapon : Weapon
     public void CanShoot()
     {
         canShoot = true;
+    }
+
+    public void Attack(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            if (canShoot)
+                Shoot();
+        }
+    }
+
+    public void RightClickAbility(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            if (canShoot)
+                MassiveShot();
+        }
     }
 }
