@@ -19,13 +19,19 @@ public class RoomController : MonoBehaviour
     [SerializeField]
     public List<wave> Waves;
 
+    [SerializeField]
     private int EnemiesAlive = 0;
-    private int _Wave;
+
+    [SerializeField]
+    private int _Wave = -1;
+
     public int Wave { get => _Wave; }
 
     public void OnEnemyDied()
     {
         EnemiesAlive--;
+        
+        Debug.Log("Enemy Ded");
 
         if (EnemiesAlive == 0)
             NextWave();
@@ -33,7 +39,7 @@ public class RoomController : MonoBehaviour
 
     public void OnEnemySpawned()
     {
-        EnemiesAlive++;
+        Debug.Log("Enemy spawn");
     }
 
     public void OnRoomEnter()
@@ -56,13 +62,15 @@ public class RoomController : MonoBehaviour
 
     public void NextWave()
     {
+        _Wave++;
+
         if (_Wave >= Waves.Count) {
             RoomExit.SetActive(false);
             RoomEntrance.SetActive(false);
             return;
         }
 
-        _Wave++;
+        EnemiesAlive = Waves[_Wave].Enemies.Count;
 
         StartCoroutine("NextWaveCoroutine");
     }
