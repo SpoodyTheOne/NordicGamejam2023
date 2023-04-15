@@ -95,8 +95,8 @@ public class ThunderBirdPlayer : Player
     {
         virtualCursor.gameObject.SetActive(true);
 
-        //lookDir = mousePos - rb.position;
-        lookDir = new Vector2(virtualCursor.position.x, virtualCursor.position.y) - rb.position;
+        lookDir = mousePos - rb.position;
+        //lookDir = new Vector2(virtualCursor.position.x, virtualCursor.position.y) - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
 
         rb.rotation = angle;
