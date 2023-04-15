@@ -7,12 +7,15 @@ public abstract class IDamagable : MonoBehaviour
     public float Health { get => _Health; }
     public bool Dead   { get => _Dead;  }
 
-    private float _Health  = 1f;
-    private bool  _Dead    = false;
+    [SerializeField]
+    protected float _Health  = 1f;
+    [SerializeField]
+    protected bool  _Dead    = false;
 
-    private float IFrameTime    = 0.0f;
-    private float IFrameSeconds = 0.6f;
-    private bool UseHearts      = false;
+    protected float IFrameTime    = 0.0f;
+    [SerializeField]
+    protected float IFrameSeconds = 0.6f;
+    protected bool UseHearts      = false;
 
     public virtual bool TakeDamage(GameObject attacker, float Amount)
     {

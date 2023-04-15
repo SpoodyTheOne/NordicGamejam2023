@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
-public class EnemyBehavior : MonoBehaviour
+public class EnemyBehavior : IDamagable
 {
     public AIPath aIPathScript;
     public float desiredDistanceToPlayer;
@@ -93,5 +93,12 @@ public class EnemyBehavior : MonoBehaviour
 
         destinationSetter.target = currentPlayerToTarget.transform;
         ptt.target = currentPlayerToTarget.transform;
+    }
+
+    public override void Die()
+    {
+        base.Die();
+
+        Destroy(gameObject);
     }
 }
