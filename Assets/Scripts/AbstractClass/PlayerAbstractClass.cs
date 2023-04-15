@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public abstract class Player : MonoBehaviour
+public abstract class Player : IDamagable
 {
     #region Essentials
     [HideInInspector] public SpriteRenderer playerSprite;
@@ -21,7 +21,6 @@ public abstract class Player : MonoBehaviour
     #region FloatVar
     [Header("PlayerVariables")]
     public float speed = 0;
-    public float health = 0;
     public float damage = 0;
     [Space(10)]
     private float keptSpeed;
