@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class WeaponScript : MonoBehaviour
 {
@@ -19,12 +20,12 @@ public class WeaponScript : MonoBehaviour
     }
     private void Update()
     {
-        Vector2 dir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        Vector2 dir = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         Quaternion rot = Quaternion.AngleAxis(angle - 90, Vector3.forward);
         transform.rotation = rot;
 
-        if (Input.GetMouseButtonDown(0))
+        /*if (Input.GetMouseButtonDown(0))
         {
             if (!started)
             {
@@ -35,7 +36,7 @@ public class WeaponScript : MonoBehaviour
             {
                 dontStop = true;
             }
-        }
+        }*/
     }
 
     public void StopAnimation()
@@ -47,5 +48,21 @@ public class WeaponScript : MonoBehaviour
         }
 
         dontStop = false;
+    }
+
+    public void Attack(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            if (!started)
+            {
+                started = true;
+                anim.SetTrigger("StartAnimation");
+            }
+            else
+            {
+                dontStop = true;
+            }
+        }
     }
 }

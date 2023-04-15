@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public abstract class Player : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public abstract class Player : MonoBehaviour
     #endregion
     #region Vector2Var
     [HideInInspector] public Vector2 movement;
+    [HideInInspector] public Vector2 movementInput;
     [HideInInspector] public Vector2 mousePos;
     [HideInInspector] public Vector2 lookDir;
     #endregion
@@ -46,10 +48,12 @@ public abstract class Player : MonoBehaviour
     public virtual void Update()
     {
         #region Inputs
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        //movement.x = Input.GetAxisRaw("Horizontal");
+        //movement.y = Input.GetAxisRaw("Vertical");
+        movement.x = movementInput.x;
+        movement.y = movementInput.y;
 
-        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         #endregion
         #region Animation
         if (movement.magnitude > 0)
@@ -73,5 +77,10 @@ public abstract class Player : MonoBehaviour
 
         //rb.rotation = angle;
         #endregion
+    }
+
+    public void Move(InputAction.CallbackContext ctx)
+    {
+        movementInput = ctx.ReadValue<Vector2>();
     }
 }

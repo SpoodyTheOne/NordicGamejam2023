@@ -1,6 +1,7 @@
 using UnityEngine;
 using EZCameraShake;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class ThunderBirdPlayer : Player
 {
@@ -29,13 +30,15 @@ public class ThunderBirdPlayer : Player
     {
         if (!birdForm)
         {
-            movement.x = Input.GetAxisRaw("Horizontal");
-            movement.y = Input.GetAxisRaw("Vertical");
+            //movement.x = Input.GetAxisRaw("Horizontal");
+            //movement.y = Input.GetAxisRaw("Vertical");
+            movement.x = movementInput.x;
+            movement.y = movementInput.y;
         }
 
-        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
 
-        if (Input.GetMouseButtonDown(1) && !birdForm && !tp)
+        /*if (Input.GetMouseButtonDown(1) && !birdForm && !tp)
         {
             effect = Instantiate(fx[0], gameObject.transform.position, Quaternion.identity);
             Destroy(effect, 1.2f);
@@ -64,7 +67,7 @@ public class ThunderBirdPlayer : Player
             CameraShaker.Instance.ShakeOnce(10f, 10f, 0f, .67f);
 
             GameObject.Find("Wings").GetComponent<Animator>().SetTrigger("WingDown");
-        }
+        }*/
 
         if (birdForm)
             BirdFormActivate();
@@ -138,5 +141,55 @@ public class ThunderBirdPlayer : Player
     {
         pfx.Play();
         pfx.loop = true;
+    }
+
+    public void RightClickAbility(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            if(!birdForm && !tp)
+            {
+                effect = Instantiate(fx[0], gameObject.transform.position, Quaternion.identity);
+                Destroy(effect, 1.2f);
+
+                effect.transform.parent = playerForms[1].transform;
+
+                timeElapsed = 0;
+                birdForm = true;
+            }
+        }
+
+        if (ctx.canceled)
+        {
+            BirdFormDeactivate();
+        }
+    }
+
+    public void EAbility(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            if(!birdForm && !tp)
+            {
+                tp = true;
+
+                GameObject.Find("Wings").GetComponent<Animator>().SetTrigger("Wing");
+                TeleportTarget();
+            }
+        }
+
+        if (ctx.canceled)
+        {
+            if (!tp)
+            {
+                tp = false;
+                var pfx = Instantiate(fx[2], new Vector3(mousePos.x, mousePos.y, 0), Quaternion.identity);
+                Destroy(pfx, 4.1f);
+
+                CameraShaker.Instance.ShakeOnce(10f, 10f, 0f, .67f);
+
+                GameObject.Find("Wings").GetComponent<Animator>().SetTrigger("WingDown");
+            }
+        }
     }
 }
