@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.InputSystem.Users;
+using UnityEngine.UI;
 
 public class GamepadCursor : MonoBehaviour
 {
@@ -19,14 +20,26 @@ public class GamepadCursor : MonoBehaviour
     private float cursorSpeed = 1000f;
 
     public bool menuCursor;
+    public GameObject cursorInstant;
 
     private bool previousMouseState;
     private Mouse virtualMouse;
     private Camera mainCamera;
+    private Vector2 deltaValue;
+    public bool click;
 
     private void OnEnable()
     {
         mainCamera = Camera.main;
+
+        if (menuCursor)
+        {
+            canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+            canvasRectTransform = GameObject.Find("Canvas").GetComponent<RectTransform>();
+
+            GameObject instant = Instantiate(cursorInstant, canvasRectTransform);
+            cursorTransform = instant.GetComponent<RectTransform>();
+        }
 
         if (virtualMouse == null)
         {
@@ -63,15 +76,14 @@ public class GamepadCursor : MonoBehaviour
             return;
         }
 
-        Vector2 deltaValue;
-        if (menuCursor)
+        /*if (menuCursor)
         {
             deltaValue = Gamepad.current.leftStick.ReadValue();
         }
         else
         {
             deltaValue = Gamepad.current.rightStick.ReadValue();
-        }
+        }*/
 
         deltaValue *= cursorSpeed * Time.deltaTime;
 
@@ -101,5 +113,10 @@ public class GamepadCursor : MonoBehaviour
         Vector2 anchoredPosition;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRectTransform, position, canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : mainCamera, out anchoredPosition);
         cursorTransform.anchoredPosition = anchoredPosition;
+    }
+
+    public void Navigate(InputAction.CallbackContext ctx)
+    {
+        deltaValue = ctx.ReadValue<Vector2>();
     }
 }
