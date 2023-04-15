@@ -54,7 +54,7 @@ public class RoomController : MonoBehaviour
     
     }
 
-    void NextWave()
+    public void NextWave()
     {
         if (_Wave >= Waves.Count) {
             RoomExit.SetActive(false);
