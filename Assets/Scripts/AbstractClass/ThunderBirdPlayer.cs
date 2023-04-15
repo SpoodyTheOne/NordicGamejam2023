@@ -38,7 +38,7 @@ public class ThunderBirdPlayer : Player
             movement.y = movementInput.y;
         }
 
-        mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         /*if (Input.GetMouseButtonDown(1) && !birdForm && !tp)
         {
