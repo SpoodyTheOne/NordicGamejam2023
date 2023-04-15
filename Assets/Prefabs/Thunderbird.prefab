@@ -5661,6 +5661,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   movement: {x: 0, y: 0}
+  movementInput: {x: 0, y: 0}
   mousePos: {x: 0, y: 0}
   lookDir: {x: 0, y: 0}
   speed: 4
@@ -5675,6 +5676,7 @@ MonoBehaviour:
   - {fileID: 2920213201490609288, guid: 3efd4de9cb7db644b83cc1bddac9c199, type: 3}
   - {fileID: 1504018919375734988, guid: 3bc58350ba745a74ab5315ed52235b1d, type: 3}
   - {fileID: 755684893714558793, guid: 304f160503f75294881437fc029479b3, type: 3}
+  virtualCursor: {fileID: 0}
 --- !u!50 &777144241335128640
 Rigidbody2D:
   serializedVersion: 4
@@ -15779,7 +15781,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
