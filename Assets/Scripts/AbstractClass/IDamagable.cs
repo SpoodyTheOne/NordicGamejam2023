@@ -49,6 +49,9 @@ public abstract class IDamagable : MonoBehaviour
 
     public virtual void Die()
     {       
+        if (_Dead) // Prevent being called twice
+            return;
+
         BuffManager buffManager = GetComponent<BuffManager>();
         if (buffManager)
             buffManager.OnDeath(); // Trigger OnDeath() event if the gameobject has a BuffManager
