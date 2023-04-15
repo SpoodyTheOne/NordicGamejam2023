@@ -19,6 +19,8 @@ public class ThunderBirdPlayer : Player
 
     private bool tp;
 
+    public Transform virtualCursor;
+
     public override void Awake()
     {
         base.Awake();
@@ -91,7 +93,10 @@ public class ThunderBirdPlayer : Player
 
     private void BirdFormActivate()
     {
-        lookDir = mousePos - rb.position;
+        virtualCursor.gameObject.SetActive(true);
+
+        //lookDir = mousePos - rb.position;
+        lookDir = new Vector2(virtualCursor.position.x, virtualCursor.position.y) - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
 
         rb.rotation = angle;
@@ -115,6 +120,7 @@ public class ThunderBirdPlayer : Player
     }
     public void BirdFormDeactivate()
     {
+        virtualCursor.gameObject.SetActive(false);
         rb.rotation = 0;
 
         speed = 4;
