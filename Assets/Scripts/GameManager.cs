@@ -9,15 +9,34 @@ public class GameManager : MonoBehaviour
 
     public GameObject StartRoom;
 
+    RoomController currentRoom;
+
     // Start is called before the first frame update
     void Start()
     {
-        StartRoom.GetComponent<RoomController>().NextWave();
+        currentRoom = StartRoom.GetComponent<RoomController>();
+        currentRoom.NextWave();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (currentRoom.IsDone)
+        {
+            Vector3 ExitPos = currentRoom.RoomExit.transform.position;
+            
+            GameObject nextRoom = Instantiate(getRandomRoom(), currentRoom.transform.position, Quaternion.identity);
+
+            Vector3 EntrancePos = nextRoom.GetComponent<RoomController>().RoomEntrance.transform.position;
+
+            nextRoom.transform.Translate(ExitPos - EntrancePos);
+
+            currentRoom = nextRoom.GetComponent<RoomController>();
+        }
+    }
+
+    GameObject getRandomRoom()
+    {
+        return Rooms[0];
     }
 }

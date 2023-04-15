@@ -11,10 +11,13 @@ public struct wave
 
 public class RoomController : MonoBehaviour
 {
+    public LayerMask WhoCanStarRoomREEEE;
     public List<EnemySpawner> EnemySpawners;
 
     public GameObject RoomExit;
     public GameObject RoomEntrance;
+
+    public bool IsDone = false;
 
     [SerializeField]
     public List<wave> Waves;
@@ -42,8 +45,21 @@ public class RoomController : MonoBehaviour
         Debug.Log("Enemy spawn");
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log(other.name);
+
+        if (((1<<other.gameObject.layer) & WhoCanStarRoomREEEE) == 0) // Check if part of canHit layermask
+            return;
+
+        OnRoomEnter();
+    }
+
     public void OnRoomEnter()
     {
+        if (IsDone)
+            return;
+
         RoomEntrance.SetActive(true);
         NextWave();
     }
@@ -67,6 +83,7 @@ public class RoomController : MonoBehaviour
         if (_Wave >= Waves.Count) {
             RoomExit.SetActive(false);
             RoomEntrance.SetActive(false);
+            IsDone = true;
             return;
         }
 
