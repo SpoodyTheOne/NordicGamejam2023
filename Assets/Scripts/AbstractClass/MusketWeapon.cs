@@ -38,7 +38,6 @@ public class MusketWeapon : Weapon
             weapons[0].SetActive(true);
         }
     }
-
     private void Shoot()
     {
         canShoot = false;
