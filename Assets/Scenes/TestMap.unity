@@ -699,17 +699,69 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 543618688197618895, guid: d2c5082fc289f3046ae6338293473518, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 869753913324891616, guid: d2c5082fc289f3046ae6338293473518, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479227213331514552, guid: d2c5082fc289f3046ae6338293473518, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1846258654143702685, guid: d2c5082fc289f3046ae6338293473518, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2151944874977897152, guid: d2c5082fc289f3046ae6338293473518, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2524646151698817454, guid: d2c5082fc289f3046ae6338293473518, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2622508503589863483, guid: d2c5082fc289f3046ae6338293473518, type: 3}
       propertyPath: Gamepad
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2622508503589863483, guid: d2c5082fc289f3046ae6338293473518, type: 3}
+      propertyPath: _Health
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2622508503589863483, guid: d2c5082fc289f3046ae6338293473518, type: 3}
       propertyPath: virtualCursor
       value: 
       objectReference: {fileID: 1099303061}
+    - target: {fileID: 4141032470362071080, guid: d2c5082fc289f3046ae6338293473518, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4640723932760293868, guid: d2c5082fc289f3046ae6338293473518, type: 3}
       propertyPath: m_Name
       value: Thunderbird
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640723932760293868, guid: d2c5082fc289f3046ae6338293473518, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5296962754940222506, guid: d2c5082fc289f3046ae6338293473518, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5549565142756754753, guid: d2c5082fc289f3046ae6338293473518, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5784370238019748137, guid: d2c5082fc289f3046ae6338293473518, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279088408639428181, guid: d2c5082fc289f3046ae6338293473518, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6484927525335431809, guid: d2c5082fc289f3046ae6338293473518, type: 3}
       propertyPath: m_DefaultControlScheme
@@ -718,6 +770,22 @@ PrefabInstance:
     - target: {fileID: 7017537534612595671, guid: d2c5082fc289f3046ae6338293473518, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7281815287974814842, guid: d2c5082fc289f3046ae6338293473518, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8298886581894532409, guid: d2c5082fc289f3046ae6338293473518, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8399815605792515156, guid: d2c5082fc289f3046ae6338293473518, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429053721323632567, guid: d2c5082fc289f3046ae6338293473518, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8755019004119249091, guid: d2c5082fc289f3046ae6338293473518, type: 3}
       propertyPath: m_RootOrder
