@@ -63,7 +63,16 @@ public class GamepadCursor : MonoBehaviour
             return;
         }
 
-        Vector2 deltaValue = Gamepad.current.rightStick.ReadValue();
+        Vector2 deltaValue;
+        if (menuCursor)
+        {
+            deltaValue = Gamepad.current.leftStick.ReadValue();
+        }
+        else
+        {
+            deltaValue = Gamepad.current.rightStick.ReadValue();
+        }
+
         deltaValue *= cursorSpeed * Time.deltaTime;
 
         Vector2 currentPosition = virtualMouse.position.ReadValue();
@@ -75,9 +84,13 @@ public class GamepadCursor : MonoBehaviour
         InputState.Change(virtualMouse.position, newPosition);
         InputState.Change(virtualMouse.delta, deltaValue);
 
-        if(previousMouseState != Gamepad.current.aButton.isPressed)
+        bool aButtonIsPressed = Gamepad.current.aButton.IsPressed();
+        if (previousMouseState != aButtonIsPressed)
         {
-            virtualMouse.CopyState<MouseState>(out var MouseState);
+            virtualMouse.CopyState<MouseState>(out var mouseState);
+            mouseState.WithButton(MouseButton.Left, aButtonIsPressed);
+            InputState.Change(virtualMouse, mouseState);
+            previousMouseState = aButtonIsPressed;
         }
 
         AnchorCursor(newPosition);

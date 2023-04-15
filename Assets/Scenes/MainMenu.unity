@@ -388,7 +388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -728,17 +728,17 @@ MonoBehaviour:
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: -944628639613478452, guid: 7b5aa0f626a9cf24292a48af458268fe, type: 3}
-  m_PointAction: {fileID: 1054132383583890850, guid: 7b5aa0f626a9cf24292a48af458268fe, type: 3}
-  m_MoveAction: {fileID: 3710738434707379630, guid: 7b5aa0f626a9cf24292a48af458268fe, type: 3}
-  m_SubmitAction: {fileID: 5422395011963256940, guid: 7b5aa0f626a9cf24292a48af458268fe, type: 3}
-  m_CancelAction: {fileID: 5991931060302861152, guid: 7b5aa0f626a9cf24292a48af458268fe, type: 3}
-  m_LeftClickAction: {fileID: 8056856818456041789, guid: 7b5aa0f626a9cf24292a48af458268fe, type: 3}
-  m_MiddleClickAction: {fileID: -8143616832929358842, guid: 7b5aa0f626a9cf24292a48af458268fe, type: 3}
-  m_RightClickAction: {fileID: 7707267686252780439, guid: 7b5aa0f626a9cf24292a48af458268fe, type: 3}
-  m_ScrollWheelAction: {fileID: 4606543133635137330, guid: 7b5aa0f626a9cf24292a48af458268fe, type: 3}
-  m_TrackedDevicePositionAction: {fileID: 8653746725372036959, guid: 7b5aa0f626a9cf24292a48af458268fe, type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: -8151938440588557680, guid: 7b5aa0f626a9cf24292a48af458268fe, type: 3}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_CancelAction: {fileID: -1967631576421560919, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_ScrollWheelAction: {fileID: 4502412055082496612, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 4754684134866288074, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 1025543830046995696, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
@@ -1322,7 +1322,7 @@ MonoBehaviour:
         m_MethodName: ActivateObject
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgument: {fileID: 1476231892}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -2157,7 +2157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 7b5aa0f626a9cf24292a48af458268fe, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 812372780}
   m_DeviceLostEvent:
@@ -2170,9 +2170,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
-  m_DefaultActionMap: 29c18055-f94d-47ae-8d9f-a3ab2816f446
+  m_DefaultActionMap: UI
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 2010633735}
 --- !u!114 &2067844583
