@@ -89,6 +89,11 @@ public class ThunderBirdPlayer : Player
         base.FixedUpdate();
     }
 
+    public override bool TakeDamage(GameObject attacker, float amount)
+    {
+        return base.TakeDamage(attacker, amount);
+    }
+
     private void BirdFormActivate()
     {
         if (Gamepad)
