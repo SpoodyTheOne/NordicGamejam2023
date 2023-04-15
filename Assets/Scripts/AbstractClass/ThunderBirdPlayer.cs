@@ -19,8 +19,6 @@ public class ThunderBirdPlayer : Player
 
     private bool tp;
 
-    public Transform virtualCursor;
-
     public override void Awake()
     {
         base.Awake();
@@ -30,6 +28,8 @@ public class ThunderBirdPlayer : Player
     }
     public override void Update()
     {
+        virtualMousePos = Camera.main.ScreenToWorldPoint(new Vector2(virtualCursor.position.x, virtualCursor.position.y));
+
         if (!birdForm)
         {
             //movement.x = Input.GetAxisRaw("Horizontal");
@@ -87,16 +87,18 @@ public class ThunderBirdPlayer : Player
     public override void FixedUpdate()
     {
         base.FixedUpdate();
-        
-
     }
 
     private void BirdFormActivate()
     {
-        virtualCursor.gameObject.SetActive(true);
+        if (Gamepad)
+        {
+            lookDir = virtualMousePos - rb.position;
+        } else
+        {
+            lookDir = mousePos - rb.position;
+        }
 
-        lookDir = mousePos - rb.position;
-        //lookDir = new Vector2(virtualCursor.position.x, virtualCursor.position.y) - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
 
         rb.rotation = angle;
@@ -113,14 +115,20 @@ public class ThunderBirdPlayer : Player
         playerForms[1].SetActive(true);
         playerForms[0].SetActive(false);
 
-        transform.position = Vector2.MoveTowards(transform.position, new Vector2(mousePos.x, mousePos.y), speed * Time.deltaTime);
+        if(Gamepad)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(virtualMousePos.x, virtualMousePos.y), speed * Time.deltaTime);
+        }
+        else
+        {
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(mousePos.x, mousePos.y), speed * Time.deltaTime);
+        }
 
         if (timeElapsed > flyTime)
             BirdFormDeactivate();
     }
     public void BirdFormDeactivate()
     {
-        virtualCursor.gameObject.SetActive(false);
         rb.rotation = 0;
 
         speed = 4;
@@ -180,17 +188,32 @@ public class ThunderBirdPlayer : Player
                 tp = true;
 
                 GameObject.Find("Wings").GetComponent<Animator>().SetTrigger("Wing");
-                TeleportTarget();
+
+                if (!Gamepad)
+                {
+                    TeleportTarget();
+                }
             }
         }
 
         if (ctx.canceled)
         {
-            if (!tp)
+            if (tp)
             {
+                if (Gamepad)
+                {
+                    gameObject.transform.position = virtualMousePos;
+                    gameObject.GetComponent<ThunderBirdPlayer>().BirdFormDeactivate();
+                    var pfx = Instantiate(fx[2], new Vector3(virtualMousePos.x, virtualMousePos.y, 0), Quaternion.identity);
+                    Destroy(pfx, 4.1f);
+                }
+                else
+                {
+                    var pfx = Instantiate(fx[2], new Vector3(mousePos.x, mousePos.y, 0), Quaternion.identity);
+                    Destroy(pfx, 4.1f);
+                }
+
                 tp = false;
-                var pfx = Instantiate(fx[2], new Vector3(mousePos.x, mousePos.y, 0), Quaternion.identity);
-                Destroy(pfx, 4.1f);
 
                 CameraShaker.Instance.ShakeOnce(10f, 10f, 0f, .67f);
 

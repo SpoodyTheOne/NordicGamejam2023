@@ -33,6 +33,11 @@ public abstract class Player : MonoBehaviour
     [HideInInspector] public Animator anim;
     public ParticleSystem pfx;
 
+    public Transform virtualCursor;
+    public Vector2 virtualMousePos;
+    public PlayerInput playerInput;
+    public bool Gamepad;
+
     public virtual void Awake()
     {
         #region SetComponents
