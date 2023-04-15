@@ -53,7 +53,7 @@ public abstract class Player : MonoBehaviour
         movement.x = movementInput.x;
         movement.y = movementInput.y;
 
-        mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         #endregion
         #region Animation
         if (movement.magnitude > 0)
