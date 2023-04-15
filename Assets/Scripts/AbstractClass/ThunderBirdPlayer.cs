@@ -1,4 +1,5 @@
 using UnityEngine;
+using EZCameraShake;
 using UnityEngine.UI;
 
 public class ThunderBirdPlayer : Player
@@ -7,10 +8,6 @@ public class ThunderBirdPlayer : Player
     [SerializeField] private GameObject[] playerForms;
 
     private float flyTime = 1;
-    [SerializeField] private Image timeForFly;
-
-    [SerializeField] private ParticleSystem pfx;
-    private Animator anim;
 
     [SerializeField] GameObject[] fx;
     private GameObject effect = null;
@@ -25,8 +22,6 @@ public class ThunderBirdPlayer : Player
     {
         base.Awake();
 
-        anim = GetComponent<Animator>();
-
         weaponScript = GetComponentInChildren<WeaponScript>();
         BirdFormDeactivate();
     }
@@ -39,14 +34,6 @@ public class ThunderBirdPlayer : Player
         }
 
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        speed = Mathf.Lerp(speed, 4f, timeElapsed);
-
-        if (speed > 4.0001)
-        {
-            timeElapsed += Time.deltaTime;
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2(mousePos.x, mousePos.y), speed * Time.deltaTime);
-        }
 
         if (Input.GetMouseButtonDown(1) && !birdForm && !tp)
         {
@@ -71,6 +58,11 @@ public class ThunderBirdPlayer : Player
         if (Input.GetKeyUp(KeyCode.E) && tp)
         {
             tp = false;
+            var pfx = Instantiate(fx[2], new Vector3(mousePos.x, mousePos.y, 0), Quaternion.identity);
+            Destroy(pfx, 4.1f);
+
+            CameraShaker.Instance.ShakeOnce(10f, 10f, 0f, .67f);
+
             GameObject.Find("Wings").GetComponent<Animator>().SetTrigger("WingDown");
         }
 
@@ -106,7 +98,6 @@ public class ThunderBirdPlayer : Player
         {
             float valueToLerp = Mathf.Lerp(0, 1, timeElapsed / flyTime);
             timeElapsed += Time.deltaTime;
-            timeForFly.fillAmount = timeElapsed;
         }
 
         speed = Mathf.Lerp(speed, 16f, timeElapsed);
@@ -122,6 +113,8 @@ public class ThunderBirdPlayer : Player
     public void BirdFormDeactivate()
     {
         rb.rotation = 0;
+
+        speed = 4;
 
         weaponScript.gameObject.SetActive(true);
         if (effect != null)
