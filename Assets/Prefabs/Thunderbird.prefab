@@ -5106,6 +5106,7 @@ GameObject:
   - component: {fileID: 5388301823899255068}
   - component: {fileID: 952776729823539652}
   - component: {fileID: 7017537534612595671}
+  - component: {fileID: 3667447057757652245}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -5210,7 +5211,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.045105398, y: 0.0046696067}
@@ -5226,6 +5227,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.7224056, y: 1.3345779}
   m_EdgeRadius: 0
+--- !u!114 &3667447057757652245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846258654143702685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0939e9096a2d71b5904743d264e3ec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 10
+  canHit:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &2151944874977897152
 GameObject:
   m_ObjectHideFlags: 0
@@ -5576,7 +5593,7 @@ Transform:
   - {fileID: 4741173865004800361}
   - {fileID: 1818562003177518278}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2622508503589863483
 MonoBehaviour:
@@ -5590,6 +5607,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7587bbf6dbaef4343b24724a97d475d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _Health: 1
+  _Dead: 0
+  IFrameSeconds: 0.6
   playerSprite: {fileID: 0}
   rb: {fileID: 0}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -5598,7 +5618,6 @@ MonoBehaviour:
   mousePos: {x: 0, y: 0}
   lookDir: {x: 0, y: 0}
   speed: 4
-  health: 10
   damage: 2
   anim: {fileID: 0}
   pfx: {fileID: 3299332583097992695}
@@ -5778,6 +5797,7 @@ GameObject:
   - component: {fileID: 4741173865004800361}
   - component: {fileID: 4790692904784738804}
   - component: {fileID: 5194262371622415890}
+  - component: {fileID: 3966370913110387217}
   m_Layer: 0
   m_Name: humanForm
   m_TagString: Untagged
@@ -5900,6 +5920,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32285267, y: 0.8945427}
   m_EdgeRadius: 0
+--- !u!114 &3966370913110387217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5296962754940222506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: def34e8a725640057a5168cfdcf933f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Health: 1
+  _Dead: 0
+  IFrameSeconds: 0.6
+  player: {fileID: 2622508503589863483}
 --- !u!1 &5549565142756754753
 GameObject:
   m_ObjectHideFlags: 0
