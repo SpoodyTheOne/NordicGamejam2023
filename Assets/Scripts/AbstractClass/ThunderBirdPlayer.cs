@@ -19,6 +19,8 @@ public class ThunderBirdPlayer : Player
 
     float timeElapsed;
 
+    private bool tp;
+
     public override void Awake()
     {
         base.Awake();
@@ -36,8 +38,6 @@ public class ThunderBirdPlayer : Player
             movement.y = Input.GetAxisRaw("Vertical");
         }
 
-        Debug.Log(movement.magnitude);
-
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         speed = Mathf.Lerp(speed, 4f, timeElapsed);
@@ -48,7 +48,7 @@ public class ThunderBirdPlayer : Player
             transform.position = Vector2.MoveTowards(transform.position, new Vector2(mousePos.x, mousePos.y), speed * Time.deltaTime);
         }
 
-        if (Input.GetMouseButtonDown(1) && !birdForm)
+        if (Input.GetMouseButtonDown(1) && !birdForm && !tp)
         {
             effect = Instantiate(fx[0], gameObject.transform.position, Quaternion.identity);
             Destroy(effect, 1.2f);
@@ -61,8 +61,18 @@ public class ThunderBirdPlayer : Player
         if (Input.GetMouseButtonUp(1))
             BirdFormDeactivate();
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && !birdForm && !tp)
+        {
+            tp = true;
+
+            GameObject.Find("Wings").GetComponent<Animator>().SetTrigger("Wing");
             TeleportTarget();
+        }
+        if (Input.GetKeyUp(KeyCode.E) && tp)
+        {
+            tp = false;
+            GameObject.Find("Wings").GetComponent<Animator>().SetTrigger("WingDown");
+        }
 
         if (birdForm)
             BirdFormActivate();
@@ -86,6 +96,11 @@ public class ThunderBirdPlayer : Player
 
     private void BirdFormActivate()
     {
+        lookDir = mousePos - rb.position;
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
+
+        rb.rotation = angle;
+
         weaponScript.gameObject.SetActive(false);
         if (timeElapsed < flyTime)
         {
@@ -106,9 +121,14 @@ public class ThunderBirdPlayer : Player
     }
     public void BirdFormDeactivate()
     {
+        rb.rotation = 0;
+
         weaponScript.gameObject.SetActive(true);
         if (effect != null)
+        {
             effect.transform.parent = null;
+            effect.gameObject.GetComponent<ParticleSystem>().Stop();
+        }
 
         timeElapsed = 0;
         birdForm = false;
@@ -116,7 +136,7 @@ public class ThunderBirdPlayer : Player
         playerForms[0].SetActive(true);
         playerForms[1].SetActive(false);
     }
-    private void TeleportTarget()
+    public void TeleportTarget()
     {
         var target = Instantiate(fx[1], mousePos, Quaternion.identity);
     }
