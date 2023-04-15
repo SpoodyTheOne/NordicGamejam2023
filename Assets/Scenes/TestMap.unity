@@ -593,6 +593,10 @@ PrefabInstance:
       propertyPath: m_DefaultControlScheme
       value: Gamepad
       objectReference: {fileID: 0}
+    - target: {fileID: 7017537534612595671, guid: d2c5082fc289f3046ae6338293473518, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8755019004119249091, guid: d2c5082fc289f3046ae6338293473518, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -640,7 +644,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1846258654143702685, guid: d2c5082fc289f3046ae6338293473518, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1306113222}
   m_SourcePrefab: {fileID: 100100000, guid: d2c5082fc289f3046ae6338293473518, type: 3}
 --- !u!1 &819287910
 GameObject:
@@ -1055,6 +1062,27 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 1603374266}
+--- !u!1 &1306113218 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1846258654143702685, guid: d2c5082fc289f3046ae6338293473518, type: 3}
+  m_PrefabInstance: {fileID: 805259513}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1306113222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306113218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0939e9096a2d71b5904743d264e3ec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 10
+  canHit:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &1511173259
 GameObject:
   m_ObjectHideFlags: 0

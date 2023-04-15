@@ -46,6 +46,9 @@ public abstract class Player : IDamagable
         playerSprite = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
 
+        // IDamagable
+        UseHearts = true;
+
         #endregion
     }
 
