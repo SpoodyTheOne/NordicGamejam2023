@@ -90,4 +90,11 @@ public abstract class Player : IDamagable
     {
         movementInput = ctx.ReadValue<Vector2>();
     }
+
+    public override bool TakeDamage(GameObject attacker, float amount)
+    {
+        bool d = base.TakeDamage(attacker, amount);
+
+        return d;
+    }
 }

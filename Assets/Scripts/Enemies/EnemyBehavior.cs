@@ -20,6 +20,8 @@ public class EnemyBehavior : IDamagable
     private GameObject currentPlayerToTarget;
     private float lastDistance;
 
+    public EnemySpawner spawner;
+
     private void Start()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
@@ -98,6 +100,8 @@ public class EnemyBehavior : IDamagable
     public override void Die()
     {
         base.Die();
+        
+        spawner.OnEnemyDied(this.gameObject);
 
         Destroy(gameObject);
     }

@@ -11,21 +11,30 @@ public struct wave
 
 public class RoomController : MonoBehaviour
 {
+    public LayerMask WhoCanStarRoomREEEE;
     public List<EnemySpawner> EnemySpawners;
 
     public GameObject RoomExit;
     public GameObject RoomEntrance;
 
+    public bool IsDone = false;
+
     [SerializeField]
     public List<wave> Waves;
 
+    [SerializeField]
     private int EnemiesAlive = 0;
-    private int _Wave;
+
+    [SerializeField]
+    private int _Wave = -1;
+
     public int Wave { get => _Wave; }
 
     public void OnEnemyDied()
     {
         EnemiesAlive--;
+        
+        Debug.Log("Enemy Ded");
 
         if (EnemiesAlive == 0)
             NextWave();
@@ -33,11 +42,24 @@ public class RoomController : MonoBehaviour
 
     public void OnEnemySpawned()
     {
-        EnemiesAlive++;
+        Debug.Log("Enemy spawn");
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log(other.name);
+
+        if (((1<<other.gameObject.layer) & WhoCanStarRoomREEEE) == 0) // Check if part of canHit layermask
+            return;
+
+        OnRoomEnter();
     }
 
     public void OnRoomEnter()
     {
+        if (IsDone)
+            return;
+
         RoomEntrance.SetActive(true);
         NextWave();
     }
@@ -54,15 +76,18 @@ public class RoomController : MonoBehaviour
     
     }
 
-    void NextWave()
+    public void NextWave()
     {
+        _Wave++;
+
         if (_Wave >= Waves.Count) {
             RoomExit.SetActive(false);
             RoomEntrance.SetActive(false);
+            IsDone = true;
             return;
         }
 
-        _Wave++;
+        EnemiesAlive = Waves[_Wave].Enemies.Count;
 
         StartCoroutine("NextWaveCoroutine");
     }

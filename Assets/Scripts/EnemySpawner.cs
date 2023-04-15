@@ -13,15 +13,14 @@ public class EnemySpawner : MonoBehaviour
     {
         GameObject newEnemy = Instantiate(enemy != null ? enemy : Enemy, transform.position, Quaternion.identity);
         
-        // newEnemy.GetComponent<EnemyDeathTrigger>().setSpawner(this.gameObject);
-
+        newEnemy.GetComponent<EnemyBehavior>().spawner = this;
         if (room)
             room.OnEnemySpawned();
 
         SpawnEffect.Play();
     }
 
-    void OnEnemyDied(GameObject enemy)
+    public void OnEnemyDied(GameObject enemy)
     {
         if (room)
             this.room.OnEnemyDied();
