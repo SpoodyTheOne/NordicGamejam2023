@@ -14,6 +14,7 @@ public class EnemyBehavior : MonoBehaviour
     public bool animated;
     public Animator animator;
     public AIDestinationSetter destinationSetter;
+    public PointTowardsTarget ptt;
 
     private GameObject[] players;
     private GameObject currentPlayerToTarget;
@@ -60,16 +61,19 @@ public class EnemyBehavior : MonoBehaviour
             }
         }
 
-        animator.SetFloat("MoveX", aIPathScript.velocity.x);
-        animator.SetFloat("MoveY", aIPathScript.velocity.y);
+        if (animator != null)
+        {
+            animator.SetFloat("MoveX", aIPathScript.velocity.x);
+            animator.SetFloat("MoveY", aIPathScript.velocity.y);
 
-        if (aIPathScript.canMove == true)
-        {
-            animator.SetBool("isMoving", true);
-        }
-        else
-        {
-            animator.SetBool("isMoving", false);
+            if (aIPathScript.canMove == true)
+            {
+                animator.SetBool("isMoving", true);
+            }
+            else
+            {
+                animator.SetBool("isMoving", false);
+            }
         }
 
         FindPlayerToTarget();
@@ -88,5 +92,6 @@ public class EnemyBehavior : MonoBehaviour
         }
 
         destinationSetter.target = currentPlayerToTarget.transform;
+        ptt.target = currentPlayerToTarget.transform;
     }
 }
