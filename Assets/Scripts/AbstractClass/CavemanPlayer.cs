@@ -1,18 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CavemanPlayer : Player
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private GameObject fx;
+
+    public void StartPFX()
     {
-        
+        pfx.Play();
+        pfx.loop = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Update()
     {
-        
+        base.Update();
+
+        if (Input.GetKeyDown(KeyCode.E))
+            Target();
+    }
+    private void Target()
+    {
+        var target = Instantiate(fx, mousePos, Quaternion.identity);
+    }
+
+    public override bool TakeDamage(GameObject attacker, float Amount)
+    {
+        if (GetComponentInChildren<CavemanWeapon>().blocking)
+            return base.TakeDamage(attacker, Amount/2);
+        else
+            return base.TakeDamage(attacker, Amount);
     }
 }

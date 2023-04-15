@@ -725,7 +725,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2622508503589863483, guid: d2c5082fc289f3046ae6338293473518, type: 3}
       propertyPath: Gamepad
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2622508503589863483, guid: d2c5082fc289f3046ae6338293473518, type: 3}
       propertyPath: _Health
@@ -765,7 +765,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6484927525335431809, guid: d2c5082fc289f3046ae6338293473518, type: 3}
       propertyPath: m_DefaultControlScheme
-      value: Gamepad
+      value: Keyboard & Mouse
       objectReference: {fileID: 0}
     - target: {fileID: 7017537534612595671, guid: d2c5082fc289f3046ae6338293473518, type: 3}
       propertyPath: m_IsTrigger
