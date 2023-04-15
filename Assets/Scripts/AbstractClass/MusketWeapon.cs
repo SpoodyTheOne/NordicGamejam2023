@@ -9,6 +9,8 @@ public class MusketWeapon : Weapon
     [SerializeField] private ParticleSystem pfx;
     private bool canShoot = true;
 
+    [SerializeField] GameObject[] weapons;
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -20,6 +22,21 @@ public class MusketWeapon : Weapon
 
         if (Input.GetMouseButtonDown(0) && canShoot)
             Shoot();
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            GetComponentInParent<Player>().speed /= 5;
+            anim.SetTrigger("EquipCanon");
+            weapons[1].SetActive(true);
+            weapons[0].SetActive(false);
+        }
+        if (Input.GetMouseButtonUp(1))
+        {
+            GetComponentInParent<Player>().speed *= 5;
+            anim.SetTrigger("EquipMusket");
+            weapons[1].SetActive(false);
+            weapons[0].SetActive(true);
+        }
     }
 
     private void Shoot()
