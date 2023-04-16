@@ -1,9 +1,11 @@
+using System.Collections;
 using UnityEngine;
 
 public class CavemanPlayer : Player
 {
     [SerializeField] private GameObject fx;
 
+    private bool go = true;
     public void StartPFX()
     {
         pfx.Play();
@@ -13,6 +15,14 @@ public class CavemanPlayer : Player
     public override void Update()
     {
         base.Update();
+
+        if (Input.GetMouseButton(1) && continouosConsumption && go)
+        {
+            if (currentSpice < commonCost)
+                return;
+
+            StartCoroutine(Consume());
+        }
 
         if (Input.GetKeyDown(KeyCode.E) && currentSpice >= specialCost)
             Target();
@@ -29,5 +39,12 @@ public class CavemanPlayer : Player
             return base.TakeDamage(attacker, Amount/2);
         else
             return base.TakeDamage(attacker, Amount);
+    }
+    private IEnumerator Consume()
+    {
+        go = false;
+        currentSpice -= commonCost;
+        yield return new WaitForSeconds(.5f);
+        go = true;
     }
 }

@@ -70,7 +70,6 @@ public abstract class Player : IDamagable
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         float tempSpice = currentSpice / 100f;
-        Debug.Log(tempSpice);
 
         rosemary.fillAmount = tempSpice;
         #endregion

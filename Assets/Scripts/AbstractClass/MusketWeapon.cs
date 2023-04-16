@@ -23,14 +23,23 @@ public class MusketWeapon : Weapon
         if (Input.GetMouseButtonDown(0) && canShoot)
             Shoot();
 
-        if (Input.GetMouseButtonDown(1))
+        if (GetComponentInParent<Player>().currentSpice < GetComponentInParent<Player>().commonCost && GetComponentInParent<Player>().speed < 2)
+        {
+            GetComponentInParent<Player>().speed *= 10;
+            anim.SetTrigger("EquipMusket");
+            weapons[1].SetActive(false);
+            weapons[0].SetActive(true);
+        }
+
+        if (Input.GetMouseButtonDown(1) && GetComponentInParent<Player>().currentSpice >= GetComponentInParent<Player>().commonCost)
         {
             GetComponentInParent<Player>().speed /= 10;
             anim.SetTrigger("EquipCanon");
             weapons[1].SetActive(true);
             weapons[0].SetActive(false);
         }
-        if (Input.GetMouseButtonUp(1))
+
+        if (Input.GetMouseButtonUp(1) && GetComponentInParent<Player>().currentSpice >= GetComponentInParent<Player>().commonCost)
         {
             GetComponentInParent<Player>().speed *= 10;
             anim.SetTrigger("EquipMusket");

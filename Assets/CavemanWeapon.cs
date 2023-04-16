@@ -6,7 +6,8 @@ public class CavemanWeapon : Weapon
 
     [HideInInspector] public bool charging, blocking;
     float timeElapsed = 0, currentScale = 2;
-    
+
+    private bool hitDone = true;
 
     private void Awake()
     {
@@ -17,18 +18,18 @@ public class CavemanWeapon : Weapon
     {
         base.Update();
 
-        if (Input.GetMouseButtonDown(0) && currentScale < 2.1f && !blocking)
+        if (Input.GetMouseButtonDown(0) && currentScale < 2.1f && !blocking && hitDone)
             StartCharge();
         if (Input.GetMouseButtonUp(0) && charging && !blocking)
             StopCharge();
 
-        if (Input.GetMouseButtonDown(1) && !blocking)
+        if (Input.GetMouseButtonDown(1) && !blocking && !charging)
         {
             GetComponentInParent<Player>().speed /= 2f;
             blocking = true;
             anim.SetBool("Blocking", true);
         }
-        if (Input.GetMouseButtonUp(1) && blocking)
+        else if (Input.GetMouseButtonUp(1) && blocking && !charging)
         {
             GetComponentInParent<Player>().speed *= 2f;
             blocking = false;
@@ -53,6 +54,9 @@ public class CavemanWeapon : Weapon
     }
     private void StartCharge()
     {
+        hitDone = false;
+        anim.ResetTrigger("Hit");
+
         anim.SetTrigger("Charge");
 
         timeElapsed = 0;
@@ -66,5 +70,10 @@ public class CavemanWeapon : Weapon
 
         timeElapsed = 0;
         anim.SetTrigger("Hit");
+    }
+
+    public void HitDone()
+    {
+        hitDone = true;
     }
 }
