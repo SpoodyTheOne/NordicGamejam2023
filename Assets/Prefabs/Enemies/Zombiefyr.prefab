@@ -231,8 +231,9 @@ MonoBehaviour:
   - sequence:
     - Arc: 0
       Amount: 1
+      Speed: 800
       Burst: 0
-      TimeToShoot: 2.5
+      Cooldown: 2
     currentPattern: 0
 --- !u!1 &885946634631047976
 GameObject:
