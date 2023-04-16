@@ -778,7 +778,7 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 0}
-  m_PlayerPrefab: {fileID: 2555310949863584682, guid: 3b65c0f40134b854ab9c3aea6306ef82, type: 3}
+  m_PlayerPrefab: {fileID: 8223496113690380365, guid: 3a36dfdd1dccf6547b6a440563cf607d, type: 3}
   m_SplitScreen: 0
   m_MaintainAspectRatioInSplitScreen: 0
   m_FixedNumberOfSplitScreens: -1
@@ -1023,17 +1023,17 @@ MonoBehaviour:
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: -944628639613478452, guid: 7b5aa0f626a9cf24292a48af458268fe, type: 3}
-  m_PointAction: {fileID: 1054132383583890850, guid: 7b5aa0f626a9cf24292a48af458268fe, type: 3}
-  m_MoveAction: {fileID: 3710738434707379630, guid: 7b5aa0f626a9cf24292a48af458268fe, type: 3}
-  m_SubmitAction: {fileID: 5422395011963256940, guid: 7b5aa0f626a9cf24292a48af458268fe, type: 3}
-  m_CancelAction: {fileID: 5991931060302861152, guid: 7b5aa0f626a9cf24292a48af458268fe, type: 3}
-  m_LeftClickAction: {fileID: 8056856818456041789, guid: 7b5aa0f626a9cf24292a48af458268fe, type: 3}
-  m_MiddleClickAction: {fileID: -8143616832929358842, guid: 7b5aa0f626a9cf24292a48af458268fe, type: 3}
-  m_RightClickAction: {fileID: 7707267686252780439, guid: 7b5aa0f626a9cf24292a48af458268fe, type: 3}
-  m_ScrollWheelAction: {fileID: 4606543133635137330, guid: 7b5aa0f626a9cf24292a48af458268fe, type: 3}
-  m_TrackedDevicePositionAction: {fileID: 8653746725372036959, guid: 7b5aa0f626a9cf24292a48af458268fe, type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: -8151938440588557680, guid: 7b5aa0f626a9cf24292a48af458268fe, type: 3}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_CancelAction: {fileID: -1967631576421560919, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_ScrollWheelAction: {fileID: 4502412055082496612, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 4754684134866288074, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 1025543830046995696, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
@@ -1095,7 +1095,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Caveman
+  m_text: Thunderbird
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1255,7 +1255,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1481833253}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2014913705}
+        m_TargetAssemblyTypeName: EpicPlayerAssigner, Assembly-CSharp
+        m_MethodName: AssignNumberToEpic
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1481833253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1456,7 +1468,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1645783224}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2014913705}
+        m_TargetAssemblyTypeName: EpicPlayerAssigner, Assembly-CSharp
+        m_MethodName: AssignNumberToEpic
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1645783224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1713,7 +1737,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1959462103}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2014913705}
+        m_TargetAssemblyTypeName: EpicPlayerAssigner, Assembly-CSharp
+        m_MethodName: AssignNumberToEpic
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1959462103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1830,3 +1866,48 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1983495963}
   m_CullTransparentMesh: 1
+--- !u!1 &2014913704
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2014913706}
+  - component: {fileID: 2014913705}
+  m_Layer: 0
+  m_Name: EpicPlayerAssigner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2014913705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014913704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44305ebab08dd604d8cb48694fd96956, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  megaEpicNr: 0
+--- !u!4 &2014913706
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014913704}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
