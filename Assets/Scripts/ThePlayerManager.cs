@@ -9,12 +9,14 @@ public class ThePlayerManager : MonoBehaviour
     public GameObject weapon;
     public EpicPlayerAssigner epa;
     private bool clicking;
+    public GamepadCursor gc;
 
     public int characterClass; // 1 = musket, 2 = thunder, 3 = cave
 
     public GameObject musketeer;
     public GameObject thunderBird;
     public GameObject caveMan;
+    public bool ready;
 
     public void Start()
     {
@@ -38,6 +40,11 @@ public class ThePlayerManager : MonoBehaviour
         }
     }
 
+    public void ReadyToGoOn(InputAction.CallbackContext ctx)
+    {
+        GameObject.Find("CharacterChoicePanel").SetActive(false);
+    }
+
     public void InstantiatePlayerCharacter(GameObject playerCharacter)
     {
         GameObject instant = null;
@@ -46,7 +53,14 @@ public class ThePlayerManager : MonoBehaviour
 
         player = instant.GetComponent<Player>();
 
-        weapon = player.GetComponentInChildren<WeaponScript>().gameObject;
+        if (characterClass == 2)
+            weapon = player.GetComponentInChildren<WeaponScript>().gameObject;
+        if (characterClass == 1)
+            weapon = player.GetComponentInChildren<MusketWeapon>().gameObject;
+
+        gc.menuCursor = false;
+
+        ready = true;
 
         clicking = false;
     }
@@ -72,7 +86,10 @@ public class ThePlayerManager : MonoBehaviour
 
     public void Attack(InputAction.CallbackContext ctx)
     {
-        weapon.GetComponent<WeaponScript>().Attack(ctx);
+        if (characterClass == 2)
+            weapon.GetComponent<WeaponScript>().Attack(ctx);
+        if (characterClass == 1)
+            weapon.GetComponent<MusketWeapon>().Attack(ctx);
     }
 
     public void RightClickAbility(InputAction.CallbackContext ctx)

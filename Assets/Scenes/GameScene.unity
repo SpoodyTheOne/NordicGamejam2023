@@ -1896,6 +1896,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   megaEpicNr: 0
+  tpm: {fileID: 0}
+  awooga: []
+  readyToGoOn: 0
+  panel: {fileID: 1610595574}
 --- !u!4 &2014913706
 Transform:
   m_ObjectHideFlags: 0
