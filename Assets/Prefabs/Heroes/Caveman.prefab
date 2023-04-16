@@ -69,7 +69,7 @@ Camera:
   far clip plane: 1000
   field of view: 90
   orthographic: 1
-  orthographic size: 12
+  orthographic size: 7
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -487,7 +487,7 @@ Transform:
   - {fileID: 3988880281598710702}
   - {fileID: 2078899376560516458}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &453372757108615582
 MonoBehaviour:
@@ -531,6 +531,7 @@ MonoBehaviour:
   Gamepad: 0
   fx: {fileID: 1504018919375734988, guid: 1b17de387bc9d784e96bb4d7d8d113a0, type: 3}
   img: {fileID: 0}
+  tempTarget: {fileID: 0}
 --- !u!50 &8939570024517671628
 Rigidbody2D:
   serializedVersion: 4
@@ -680,6 +681,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 58e41dba-f751-4f2a-926f-8d8a097622da
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c3f22938-1bcf-49aa-bf2e-650c1a2c23e3
+    m_ActionName: UI/MoveCursor[/XInputControllerWindows/rightStick,/XInputControllerWindows1/rightStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3efd6b54-1548-4125-ab1e-f48e3993081a
+    m_ActionName: UI/ReadyToGoOn[/XInputControllerWindows/start,/XInputControllerWindows1/start]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard & Mouse
   m_DefaultActionMap: Player

@@ -20,7 +20,7 @@ public class CameraController : MonoBehaviour
 
     public float actualZoom;
 
-    public Animator camAnim;
+    //public Animator camAnim;
 
     private float zoomTime;
     public float zoomSpeed;
@@ -80,10 +80,10 @@ public class CameraController : MonoBehaviour
         return bounds.center;
     }
 
-    public void Shake()
+    /*public void Shake()
     {
         camAnim.SetTrigger("Shake");
-    }
+    }*/
 
     public void EffectZoom(float strength, float time)
     {

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CavemanWeapon : Weapon
 {
@@ -75,5 +76,35 @@ public class CavemanWeapon : Weapon
     public void HitDone()
     {
         hitDone = true;
+    }
+
+    public void Attack(InputAction.CallbackContext ctx)
+    {
+        if(ctx.performed)
+        {
+            StartCharge();
+        }
+
+        if(ctx.canceled)
+        {
+            StopCharge();
+        }
+    }
+
+    public void RightClickAbility(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed && currentScale < 2.1f && !blocking && hitDone)
+        {
+            GetComponentInParent<Player>().speed /= 2f;
+            blocking = true;
+            anim.SetBool("Blocking", true);
+        }
+
+        if (ctx.canceled && blocking && !charging)
+        {
+            GetComponentInParent<Player>().speed *= 2f;
+            blocking = false;
+            anim.SetBool("Blocking", false);
+        }
     }
 }

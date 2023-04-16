@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class CavemanPlayer : Player
 {
@@ -10,6 +11,9 @@ public class CavemanPlayer : Player
 
     private bool coolDown = false;
     public Image img;
+
+    public GameObject tempTarget;
+
     public void StartPFX()
     {
         pfx.Play();
@@ -42,6 +46,22 @@ public class CavemanPlayer : Player
         if (Input.GetKeyDown(KeyCode.E) && currentSpice >= specialCost)
             Target();
     }
+
+    private void ControllerTarget()
+    {
+        if (coolDown)
+            return;
+
+        coolDown = true;
+        img.fillAmount = 1;
+
+        currentSpice -= specialCost;
+        GameObject target = Instantiate(fx, virtualMousePos, Quaternion.identity);
+        target.GetComponent<CavemanTarget>().controller = true;
+        target.GetComponent<CavemanTarget>().cursorTransform = virtualCursor;
+        tempTarget = target;
+    }
+
     private void Target()
     {
         if (coolDown)
@@ -67,5 +87,30 @@ public class CavemanPlayer : Player
         currentSpice -= commonCost;
         yield return new WaitForSeconds(.5f);
         go = true;
+    }
+
+    public void RightClickAbility(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed && continouosConsumption && go)
+        {
+            if (currentSpice < commonCost)
+                return;
+
+            StartCoroutine(Consume());
+        }
+    }
+
+    public void EAbility(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            if (currentSpice >= specialCost && !coolDown)
+                ControllerTarget();
+        }
+
+        if (ctx.canceled)
+        {
+            tempTarget.GetComponent<CavemanTarget>().Slam();
+        }
     }
 }
