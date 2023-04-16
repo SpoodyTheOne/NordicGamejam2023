@@ -19,6 +19,7 @@ public class EnemyBehavior : IDamagable
     private GameObject[] players;
     private GameObject currentPlayerToTarget;
     [SerializeField] private ParticleSystem pfx;
+    [SerializeField] private GameObject deadLilguy;
     private float lastDistance;
 
     public EnemySpawner spawner;
@@ -125,6 +126,8 @@ public class EnemyBehavior : IDamagable
         
         spawner.OnEnemyDied(gameObject);
 
+        var obj = Instantiate(deadLilguy, transform.position, Quaternion.identity);
+        Destroy(obj, 6f);
         Destroy(gameObject);
     }
 

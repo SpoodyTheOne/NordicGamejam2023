@@ -185,6 +185,7 @@ MonoBehaviour:
   destinationSetter: {fileID: 5657614539689954683}
   ptt: {fileID: 5751764869361238494}
   pfx: {fileID: 7330671912679946827}
+  deadLilguy: {fileID: 5504939674077326421, guid: 141c02d0c2e57c5499ec3c3bc6287cb0, type: 3}
   spawner: {fileID: 0}
 --- !u!50 &1322244076056153698
 Rigidbody2D:
