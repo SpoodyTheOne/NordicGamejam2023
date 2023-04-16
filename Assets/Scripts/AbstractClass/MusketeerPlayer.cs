@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class MusketeerPlayer : Player
 {
@@ -9,6 +10,9 @@ public class MusketeerPlayer : Player
 
     bool coolDown = false;
     public Image img;
+
+    public GameObject tempTarget;
+
     public override void Update()
     {
         base.Update();
@@ -47,6 +51,20 @@ public class MusketeerPlayer : Player
         currentSpice -= specialCost;
         var target = Instantiate(fx, mousePos, Quaternion.identity);
     }
+    private void ControllerTarget()
+    {
+        if (coolDown)
+            return;
+
+        coolDown = true;
+        img.fillAmount = 1;
+
+        currentSpice -= specialCost;
+        GameObject target = Instantiate(fx, virtualMousePos, Quaternion.identity);
+        target.GetComponent<MusketeerTarget>().controller = true;
+        target.GetComponent<MusketeerTarget>().cursorTransform = virtualCursor;
+        tempTarget = target;
+    }
     public void StartPFX()
     {
         pfx.Play();
@@ -58,5 +76,31 @@ public class MusketeerPlayer : Player
         currentSpice -= commonCost;
         yield return new WaitForSeconds(.5f);
         go = true;
+    }
+
+    public void RightClickAbility(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed && continouosConsumption && go)
+        {
+            if (currentSpice < commonCost)
+                return;
+
+            StartCoroutine(Consume());
+        }
+    }
+
+    public void EAbility(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            Debug.Log("Jam");
+            if (currentSpice >= specialCost && !coolDown)
+                ControllerTarget();
+        }
+
+        if(ctx.canceled)
+        {
+            tempTarget.GetComponent<MusketeerTarget>().Boat();
+        }
     }
 }

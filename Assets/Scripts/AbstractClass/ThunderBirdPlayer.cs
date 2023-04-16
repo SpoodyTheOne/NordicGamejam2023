@@ -22,7 +22,8 @@ public class ThunderBirdPlayer : Player
 
     private bool coolDown1 = false, coolDown2 = false;
 
-    public Image[] img;
+    public Image img;
+    public Image img2;
 
     public override void Awake()
     {
@@ -33,24 +34,26 @@ public class ThunderBirdPlayer : Player
     }
     public override void Update()
     {
+        base.Update();
+
         if (coolDown1)
         {
-            img[0].fillAmount -= 1 / commonCooldown * Time.deltaTime;
+            img.fillAmount -= 1 / commonCooldown * Time.deltaTime;
 
-            if (img[0].fillAmount <= 0)
+            if (img.fillAmount <= 0)
             {
-                img[0].fillAmount = 0;
+                img.fillAmount = 0;
                 coolDown1 = false;
             }
         }
 
         if (coolDown2)
         {
-            img[1].fillAmount -= 1 / specialCooldown * Time.deltaTime;
+            img2.fillAmount -= 1 / specialCooldown * Time.deltaTime;
 
-            if (img[1].fillAmount <= 0)
+            if (img2.fillAmount <= 0)
             {
-                img[1].fillAmount = 0;
+                img2.fillAmount = 0;
                 coolDown2 = false;
             }
         }
@@ -187,7 +190,7 @@ public class ThunderBirdPlayer : Player
             return;
 
         coolDown2 = true;
-        img[1].fillAmount = 1;
+        img2.fillAmount = 1;
 
         if (currentSpice < specialCost)
             return;
@@ -221,7 +224,7 @@ public class ThunderBirdPlayer : Player
             if(!birdForm && !tp)
             {
                 coolDown1 = true;
-                img[0].fillAmount = 1;
+                img.fillAmount = 1;
 
                 currentSpice -= commonCost;
 
@@ -237,10 +240,31 @@ public class ThunderBirdPlayer : Player
 
     public void EAbility(InputAction.CallbackContext ctx)
     {
+        Debug.Log("H");
+
+        if (ctx.canceled)
+            Debug.Log("Hel");
+
         if (ctx.canceled && tp)
         {
+            Debug.Log("Hello");
             if (Gamepad)
             {
+                if (coolDown2)
+                    return;
+
+                coolDown2 = true;
+                img2.fillAmount = 1;
+
+                if (currentSpice < specialCost)
+                    return;
+
+                tp = true;
+
+                GameObject.Find("Wings").GetComponent<Animator>().SetTrigger("Wing");
+
+                currentSpice -= specialCost;
+
                 gameObject.transform.position = virtualMousePos;
                 gameObject.GetComponent<ThunderBirdPlayer>().BirdFormDeactivate();
                 var pfx = Instantiate(fx[2], new Vector3(virtualMousePos.x, virtualMousePos.y, 0), Quaternion.identity);
@@ -263,6 +287,8 @@ public class ThunderBirdPlayer : Player
         {
             if (!birdForm && !tp)
             {
+                tp = true;
+                Debug.Log("He");
                 if (!Gamepad)
                     TeleportTarget();
             }

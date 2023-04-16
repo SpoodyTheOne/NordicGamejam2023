@@ -67,6 +67,7 @@ public abstract class Player : IDamagable
 
     public virtual void Update()
     {
+
         #region Inputs
         //movement.x = Input.GetAxisRaw("Horizontal");
         //movement.y = Input.GetAxisRaw("Vertical");
@@ -83,7 +84,6 @@ public abstract class Player : IDamagable
 
         rosemary.fillAmount = tempSpice;
         rosemary.GetComponentInChildren<TextMeshProUGUI>().text = currentSpice + " / " + maxSpice;
-
 
         #endregion
         #region Animation
@@ -113,6 +113,7 @@ public abstract class Player : IDamagable
     public void Move(InputAction.CallbackContext ctx)
     {
         movementInput = ctx.ReadValue<Vector2>();
+        Debug.Log("2");
     }
 
     public override bool TakeDamage(GameObject attacker, float amount)
