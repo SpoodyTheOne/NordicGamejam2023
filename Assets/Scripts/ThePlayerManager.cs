@@ -104,7 +104,6 @@ public class ThePlayerManager : MonoBehaviour
     {
         if (ctx.performed)
         {
-            Debug.Log("HEJKSHGIJSE");
             clicking = true;
         }
     }
@@ -126,6 +125,8 @@ public class ThePlayerManager : MonoBehaviour
             weapon.GetComponent<WeaponScript>().Attack(ctx);
         if (characterClass == 1)
             weapon.GetComponent<MusketWeapon>().Attack(ctx);
+        if (characterClass == 3)
+            weapon.GetComponent<CavemanWeapon>().Attack(ctx);
     }
 
     public void RightClickAbility(InputAction.CallbackContext ctx)
@@ -138,7 +139,7 @@ public class ThePlayerManager : MonoBehaviour
             tbp.RightClickAbility(ctx);
         } else if (characterClass == 3) //cave
         {
-            //cp.RightClickAbility(ctx);
+            cp.RightClickAbility(ctx);
         }
     }
 
@@ -154,8 +155,7 @@ public class ThePlayerManager : MonoBehaviour
         }
         else if (characterClass == 3) //cave
         {
-            //cp.EAbility(ctx);
+            cp.EAbility(ctx);
         }
-        //player.EAbility(ctx);
     }
 }
