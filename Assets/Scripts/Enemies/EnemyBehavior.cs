@@ -129,6 +129,8 @@ public class EnemyBehavior : IDamagable
         var obj = Instantiate(deadLilguy, transform.position, Quaternion.identity);
         Destroy(obj, 6f);
 
+        Destroy(gameObject);
+
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 3);
 
         foreach(var col in colliders)
@@ -136,8 +138,6 @@ public class EnemyBehavior : IDamagable
             Vector2 dir = col.transform.position - transform.position;
             col.GetComponent<Rigidbody2D>().AddForce(dir * 10f);
         }
-
-        Destroy(gameObject);
     }
 
     private void OnParticleCollision(GameObject other)
