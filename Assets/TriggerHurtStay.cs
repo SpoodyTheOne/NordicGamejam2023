@@ -11,7 +11,13 @@ public class TriggerHurtStay : IHurter
         IDamagable otherDamagable = other.GetComponent<IDamagable>();
 
         if (otherDamagable)
-            otherDamagable.TakeDamage(this.gameObject, this.Damage * Time.deltaTime);
+        {
+            otherDamagable.TakeDamage(this.gameObject, this.Damage);
+            otherDamagable.TakeDamage(this.gameObject, this.Damage);
+            otherDamagable.TakeDamage(this.gameObject, this.Damage);
+            otherDamagable.TakeDamage(this.gameObject, this.Damage);
+            otherDamagable.TakeDamage(this.gameObject, this.Damage);
+        }
 
         OnDamage(other);
     }
