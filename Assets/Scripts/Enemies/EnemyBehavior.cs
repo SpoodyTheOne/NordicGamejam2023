@@ -124,7 +124,8 @@ public class EnemyBehavior : IDamagable
     {
         base.Die();
         
-        spawner.OnEnemyDied(gameObject);
+        if (spawner)
+            spawner.OnEnemyDied(gameObject);
 
         var obj = Instantiate(deadLilguy, transform.position, Quaternion.identity);
         Destroy(obj, 6f);
