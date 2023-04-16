@@ -758,6 +758,9 @@ MonoBehaviour:
   canvas: {fileID: 93567699}
   canvasRectTransform: {fileID: 93567700}
   cursorSpeed: 750
+  menuCursor: 0
+  cursorInstant: {fileID: 0}
+  click: 0
 --- !u!4 &1190190072
 Transform:
   m_ObjectHideFlags: 0
@@ -5758,7 +5761,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rooms:
-  - {fileID: 1562610312049618473, guid: 52d7e60a18fa4f5478f5b532457d978f, type: 3}
+  - {fileID: 1562610312049618473, guid: 0398702ce66922d47adf0d1ca1e0adc6, type: 3}
+  - {fileID: 1562610312049618473, guid: 534b41dcf9a4f084ba978028a87dbe74, type: 3}
+  - {fileID: 1562610312049618473, guid: 98985427b80f8a24ba6c41a1854febf6, type: 3}
   StartRoom: {fileID: 778445350}
 --- !u!4 &1402740952
 Transform:

@@ -37,6 +37,6 @@ public class GameManager : MonoBehaviour
 
     GameObject getRandomRoom()
     {
-        return Rooms[0];
+        return Rooms[Random.Range(0, Rooms.Count)];
     }
 }
