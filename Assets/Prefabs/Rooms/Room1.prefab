@@ -145,8 +145,8 @@ Tilemap:
   - first: {x: 2, y: -8, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 5
-      m_TileSpriteIndex: 5
+      m_TileIndex: 78
+      m_TileSpriteIndex: 78
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -4615,8 +4615,8 @@ Tilemap:
   - first: {x: 4, y: 3, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 71
-      m_TileSpriteIndex: 71
+      m_TileIndex: 78
+      m_TileSpriteIndex: 78
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -13004,7 +13004,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: b72cf5573778ca64a82710680a6add10, type: 2}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: af9c2eb6f0a76fe49a74eead525ac592, type: 2}
-  - m_RefCount: 2
+  - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 52e3dbfd19d54c34a8258455991dd976, type: 2}
   - m_RefCount: 4
     m_Data: {fileID: 11400000, guid: e1f90e871098e2c4aa1735cf2e887cd2, type: 2}
@@ -13136,7 +13136,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: b303748cb11e55c4bb350cf5ed9ec6dd, type: 2}
   - m_RefCount: 4
     m_Data: {fileID: 11400000, guid: f1f2bb0acdbf6be468fae5eade6e85ff, type: 2}
-  - m_RefCount: 4
+  - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: 4d5bc979a2dc8364893c224f2b744491, type: 2}
   - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: 5557a571b41782945b5ecd602371616f, type: 2}
@@ -13150,7 +13150,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 7d0bd4c5b004b7f45afa2035006530e5, type: 2}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 280c2ea1e1fdaa04fb48cdc5a478116e, type: 2}
-  - m_RefCount: 17
+  - m_RefCount: 19
     m_Data: {fileID: 11400000, guid: ed07630f61ea6934389bff4965d4d944, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 05333a5ff7be80448a67e655ce7bb286, type: 2}
@@ -13195,7 +13195,7 @@ Tilemap:
     m_Data: {fileID: -841523731, guid: d344023ed75672240b8c0d16524e86b4, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 2093764781, guid: d344023ed75672240b8c0d16524e86b4, type: 3}
-  - m_RefCount: 2
+  - m_RefCount: 1
     m_Data: {fileID: -1471571231, guid: d344023ed75672240b8c0d16524e86b4, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -1291039779, guid: d344023ed75672240b8c0d16524e86b4, type: 3}
@@ -13327,7 +13327,7 @@ Tilemap:
     m_Data: {fileID: 1238425442, guid: d344023ed75672240b8c0d16524e86b4, type: 3}
   - m_RefCount: 4
     m_Data: {fileID: -717808321, guid: d344023ed75672240b8c0d16524e86b4, type: 3}
-  - m_RefCount: 4
+  - m_RefCount: 3
     m_Data: {fileID: -341737038, guid: d344023ed75672240b8c0d16524e86b4, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: 539684290, guid: d344023ed75672240b8c0d16524e86b4, type: 3}
@@ -13341,7 +13341,7 @@ Tilemap:
     m_Data: {fileID: -83651650, guid: d344023ed75672240b8c0d16524e86b4, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: -701925526, guid: d344023ed75672240b8c0d16524e86b4, type: 3}
-  - m_RefCount: 17
+  - m_RefCount: 19
     m_Data: {fileID: 527791551, guid: d344023ed75672240b8c0d16524e86b4, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 956327116, guid: d344023ed75672240b8c0d16524e86b4, type: 3}
@@ -15837,13 +15837,19 @@ MonoBehaviour:
   - Enemies:
     - {fileID: 218800462860319156, guid: ac68fc75da3dd6743813de0b9bb06c7e, type: 3}
   - Enemies:
+    - {fileID: 218800462860319156, guid: 2b3ffb8b51616164abba17687d1ba9fa, type: 3}
+    - {fileID: 218800462860319156, guid: ac68fc75da3dd6743813de0b9bb06c7e, type: 3}
+  - Enemies:
     - {fileID: 218800462860319156, guid: ac68fc75da3dd6743813de0b9bb06c7e, type: 3}
     - {fileID: 218800462860319156, guid: ac68fc75da3dd6743813de0b9bb06c7e, type: 3}
+    - {fileID: 218800462860319156, guid: 2b3ffb8b51616164abba17687d1ba9fa, type: 3}
   - Enemies:
     - {fileID: 218800462860319156, guid: ac68fc75da3dd6743813de0b9bb06c7e, type: 3}
     - {fileID: 218800462860319156, guid: ac68fc75da3dd6743813de0b9bb06c7e, type: 3}
     - {fileID: 218800462860319156, guid: ac68fc75da3dd6743813de0b9bb06c7e, type: 3}
     - {fileID: 218800462860319156, guid: ac68fc75da3dd6743813de0b9bb06c7e, type: 3}
+    - {fileID: 218800462860319156, guid: 2b3ffb8b51616164abba17687d1ba9fa, type: 3}
+    - {fileID: 218800462860319156, guid: 2b3ffb8b51616164abba17687d1ba9fa, type: 3}
   EnemiesAlive: 0
   _Wave: -1
 --- !u!61 &6870683893811715142
@@ -29708,7 +29714,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8477054605862028917}
   - component: {fileID: 5318053646502081705}
-  m_Layer: 0
+  - component: {fileID: 3836729489100845315}
+  m_Layer: 3
   m_Name: Exit Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29772,7 +29779,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.5968416, a: 0.6392157}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -29782,6 +29789,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &3836729489100845315
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6075582530113825746}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &6801614284466472910
 GameObject:
   m_ObjectHideFlags: 0
@@ -29918,13 +29970,14 @@ GameObject:
   m_Component:
   - component: {fileID: 6303066453020336171}
   - component: {fileID: 4901693046820178798}
+  - component: {fileID: 773882706921296035}
   m_Layer: 0
   m_Name: Entrance Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6303066453020336171
 Transform:
   m_ObjectHideFlags: 0
@@ -29982,7 +30035,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.5968416, a: 0.6392157}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -29992,6 +30045,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &773882706921296035
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7109877696479600152}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &8307237181353028398
 GameObject:
   m_ObjectHideFlags: 0

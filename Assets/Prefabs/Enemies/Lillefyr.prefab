@@ -668,44 +668,7 @@ MonoBehaviour:
       Amount: 3
       Speed: 5
       Burst: 1
-      Cooldown: 0.3
-    - Arc: 45
-      Amount: 2
-      Speed: 8
-      Burst: 1
-      Cooldown: 1
-    currentPattern: 0
-  - sequence:
-    - Arc: 360
-      Amount: 1
-      Speed: 5
-      Burst: 1
-      Cooldown: 0.5
-    - Arc: 360
-      Amount: 5
-      Speed: 5
-      Burst: 1
-      Cooldown: 0.5
-    - Arc: 360
-      Amount: 10
-      Speed: 5
-      Burst: 1
-      Cooldown: 0.4
-    - Arc: 360
-      Amount: 20
-      Speed: 5
-      Burst: 1
-      Cooldown: 0.3
-    - Arc: 360
-      Amount: 25
-      Speed: 5
-      Burst: 1
-      Cooldown: 0.2
-    - Arc: 360
-      Amount: 30
-      Speed: 5
-      Burst: 1
-      Cooldown: 5
+      Cooldown: 2
     currentPattern: 0
 --- !u!1 &5511280076690000639
 GameObject:
