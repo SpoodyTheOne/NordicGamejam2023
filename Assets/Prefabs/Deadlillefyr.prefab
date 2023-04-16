@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8166966494995778032}
   - component: {fileID: 1044097130476919986}
   - component: {fileID: 3911794144757584377}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: alien1_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 8831708996497309190}
   - component: {fileID: 1904052312826889080}
   - component: {fileID: 3046998635285292078}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Deadlillefyr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 7620267551814074762}
   - component: {fileID: 6114169156977437979}
   - component: {fileID: 4397390085279476077}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: alien1_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -484,7 +484,7 @@ GameObject:
   - component: {fileID: 9179156502355561548}
   - component: {fileID: 5572878580980650267}
   - component: {fileID: 7235097014829511237}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: alien1_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -642,7 +642,7 @@ GameObject:
   - component: {fileID: 5450423717517962643}
   - component: {fileID: 5893612153194017729}
   - component: {fileID: 6220383887106469578}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: alien1_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -800,7 +800,7 @@ GameObject:
   - component: {fileID: 5020960949228623334}
   - component: {fileID: 5828116655433401578}
   - component: {fileID: 6691209969191225108}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: alien1_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -958,7 +958,7 @@ GameObject:
   - component: {fileID: 4316443367020801245}
   - component: {fileID: 1345681756115464032}
   - component: {fileID: 6713652826166618577}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: alien1_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

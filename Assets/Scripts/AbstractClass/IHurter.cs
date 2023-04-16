@@ -7,7 +7,7 @@ public abstract class IHurter : MonoBehaviour
     public float Damage = 1f;
     public LayerMask canHit;
 
-    public virtual void OnDamage(Collider2D other)
+    public virtual void OnDamage(Collider2D other, bool tookDamage)
     {
         
     }
@@ -19,10 +19,12 @@ public abstract class IHurter : MonoBehaviour
             return;
 
         IDamagable otherDamagable = other.GetComponent<IDamagable>();
+    
+        bool successfulHit = false;
 
         if (otherDamagable)
-            otherDamagable.TakeDamage(this.gameObject, this.Damage);
+            successfulHit = otherDamagable.TakeDamage(this.gameObject, this.Damage);
 
-        OnDamage(other);
+        OnDamage(other, successfulHit);
     }
 }

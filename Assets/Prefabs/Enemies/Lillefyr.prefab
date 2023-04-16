@@ -175,7 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Health: 20
   _Dead: 0
-  IFrameSeconds: 0.6
+  IFrameSeconds: 0
   aIPathScript: {fileID: 4867512016125991653}
   desiredDistanceToPlayer: 2
   timeTillMoveAgain: 0
@@ -661,13 +661,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 803b13d90dee65741b9889f8eee08997, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastInstant: 0
-  timeBetweenInstances: 1
-  instant: {fileID: 8232173330571013332, guid: 26652b2ed8972ee4ea0b6550a2bc6315, type: 3}
-  instantiatingSwitch: 0
-  lastSwitch: 0
-  deactiveTime: 0
-  activeTime: 0
+  projectile: {fileID: 8232173330571013332, guid: 26652b2ed8972ee4ea0b6550a2bc6315, type: 3}
+  Patterns:
+  - sequence:
+    - Arc: 90
+      Amount: 3
+      Burst: 1
+      TimeToShoot: 2
+    currentPattern: 0
 --- !u!1 &5511280076690000639
 GameObject:
   m_ObjectHideFlags: 0
