@@ -101,10 +101,12 @@ MonoBehaviour:
   player: {fileID: 0}
   weapon: {fileID: 0}
   epa: {fileID: 0}
+  gc: {fileID: 1225561536675632560}
   characterClass: 2
   musketeer: {fileID: 2249966268244534680, guid: 34d89f7c9a835b84eb88623252e02c35, type: 3}
   thunderBird: {fileID: 4630005661951505168, guid: c9c4011a3e25be547b62b1d6290eebf7, type: 3}
   caveMan: {fileID: 5771301765954954270, guid: f7e7ee7bcc21dfb4b9b98983b5532df1, type: 3}
+  ready: 0
 --- !u!114 &1468015445290420191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,6 +284,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: c3f22938-1bcf-49aa-bf2e-650c1a2c23e3
     m_ActionName: UI/MoveCursor[/XInputControllerWindows/leftStick,/XInputControllerWindows1/leftStick]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4627258488587378523}
+        m_TargetAssemblyTypeName: ThePlayerManager, Assembly-CSharp
+        m_MethodName: ReadyToGoOn
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3efd6b54-1548-4125-ab1e-f48e3993081a
+    m_ActionName: UI/ReadyToGoOn[/XInputControllerWindows/start,/XInputControllerWindows1/start]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: UI

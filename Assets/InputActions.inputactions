@@ -462,6 +462,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ReadyToGoOn",
+                    "type": "Button",
+                    "id": "3efd6b54-1548-4125-ab1e-f48e3993081a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -924,6 +933,17 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "MoveCursor",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "723893d3-7553-410c-b041-bdaa10c0d622",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "ReadyToGoOn",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
