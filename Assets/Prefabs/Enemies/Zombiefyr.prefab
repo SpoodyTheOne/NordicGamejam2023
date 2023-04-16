@@ -226,13 +226,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 803b13d90dee65741b9889f8eee08997, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastInstant: 0
-  timeBetweenInstances: 1
-  instant: {fileID: 8232173330571013332, guid: 26652b2ed8972ee4ea0b6550a2bc6315, type: 3}
-  instantiatingSwitch: 0
-  lastSwitch: 0
-  deactiveTime: 0
-  activeTime: 0
+  projectile: {fileID: 8232173330571013332, guid: 26652b2ed8972ee4ea0b6550a2bc6315, type: 3}
+  Patterns:
+  - sequence:
+    - Arc: 0
+      Amount: 1
+      Burst: 0
+      TimeToShoot: 2.5
+    currentPattern: 0
 --- !u!1 &885946634631047976
 GameObject:
   m_ObjectHideFlags: 0
@@ -10072,7 +10073,7 @@ Transform:
   - {fileID: 6344827338749708365}
   - {fileID: 3544734950223568760}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4884592355372134461
 MonoBehaviour:

@@ -69,4 +69,23 @@ public class MusketWeapon : Weapon
                 Shoot();
         }
     }
+
+    public void RightClickAbility(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed && GetComponentInParent<Player>().currentSpice >= GetComponentInParent<Player>().commonCost)
+        {
+            GetComponentInParent<Player>().speed /= 10;
+            anim.SetTrigger("EquipCanon");
+            weapons[1].SetActive(true);
+            weapons[0].SetActive(false);
+        }
+
+        if (ctx.canceled && GetComponentInParent<Player>().currentSpice >= GetComponentInParent<Player>().commonCost)
+        {
+            GetComponentInParent<Player>().speed *= 10;
+            anim.SetTrigger("EquipMusket");
+            weapons[1].SetActive(false);
+            weapons[0].SetActive(true);
+        }
+    }
 }

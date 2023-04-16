@@ -10,6 +10,7 @@ public class ThePlayerManager : MonoBehaviour
     public EpicPlayerAssigner epa;
     private bool clicking;
     public GamepadCursor gc;
+    public PlayerInput playerInput;
 
     public int characterClass; // 1 = musket, 2 = thunder, 3 = cave
 
@@ -17,6 +18,11 @@ public class ThePlayerManager : MonoBehaviour
     public GameObject thunderBird;
     public GameObject caveMan;
     public bool ready;
+    public Transform virtualCursor;
+
+    private ThunderBirdPlayer tbp = null;
+    private MusketeerPlayer mp = null;
+    private CavemanPlayer cp = null;
 
     public void Start()
     {
@@ -43,20 +49,49 @@ public class ThePlayerManager : MonoBehaviour
     public void ReadyToGoOn(InputAction.CallbackContext ctx)
     {
         GameObject.Find("CharacterChoicePanel").SetActive(false);
+        playerInput.actions.FindActionMap("Player").Enable();
     }
 
     public void InstantiatePlayerCharacter(GameObject playerCharacter)
     {
+        Debug.Log("Pog");
         GameObject instant = null;
 
         instant = Instantiate(playerCharacter, this.transform);
 
         player = instant.GetComponent<Player>();
+        player.playerInput = playerInput;
+        epa.uIElements.SetActive(true);
+        virtualCursor = gc.cursorTransform;
 
         if (characterClass == 2)
+        {
             weapon = player.GetComponentInChildren<WeaponScript>().gameObject;
+            tbp = player.gameObject.GetComponent<ThunderBirdPlayer>();
+            player.rosemary = epa.thunderbirdRosemaryBar;
+            player.healthBar = epa.thunderbirdHealthBar;
+            player.virtualCursor = gc.cursorTransform;
+            tbp.img = epa.thunderbirdCooldown1;
+            tbp.img2 = epa.thunderbirdCooldown2;
+        }
         if (characterClass == 1)
+        {
             weapon = player.GetComponentInChildren<MusketWeapon>().gameObject;
+            mp = player.gameObject.GetComponent<MusketeerPlayer>();
+            player.rosemary = epa.musketeerRosemaryBar;
+            player.healthBar = epa.musketeerHealthBar;
+            player.virtualCursor = gc.cursorTransform;
+            mp.img = epa.musketeerCooldown;
+        }
+        if (characterClass == 3)
+        {
+            weapon = player.GetComponentInChildren<CavemanWeapon>().gameObject;
+            cp = player.gameObject.GetComponent<CavemanPlayer>();
+            player.rosemary = epa.cavemanRosemaryBar;
+            player.healthBar = epa.cavemanHealthBar;
+            player.virtualCursor = gc.cursorTransform;
+            cp.img = epa.cavemanCooldown;
+        }
 
         gc.menuCursor = false;
 
@@ -77,6 +112,7 @@ public class ThePlayerManager : MonoBehaviour
     public void Move(InputAction.CallbackContext ctx)
     {
         player.Move(ctx);
+        Debug.Log("1");
     }
     
     public void AssignPlayerCharacter(int characterNr)
@@ -96,30 +132,29 @@ public class ThePlayerManager : MonoBehaviour
     {
         if (characterClass == 1) //musket
         {
-
+            weapon.GetComponent<MusketWeapon>().RightClickAbility(ctx);
         } else if (characterClass == 2) //thunder
         {
-            player.gameObject.GetComponent<ThunderBirdPlayer>().RightClickAbility(ctx);
+            tbp.RightClickAbility(ctx);
         } else if (characterClass == 3) //cave
         {
-
+            //cp.RightClickAbility(ctx);
         }
-        //player.RightClickAbility(ctx);
     }
 
     public void EAbility(InputAction.CallbackContext ctx)
     {
         if (characterClass == 1) //musket
         {
-
+            mp.EAbility(ctx);
         }
         else if (characterClass == 2) //thunder
         {
-            player.gameObject.GetComponent<ThunderBirdPlayer>().EAbility(ctx);
+            tbp.EAbility(ctx);
         }
         else if (characterClass == 3) //cave
         {
-
+            //cp.EAbility(ctx);
         }
         //player.EAbility(ctx);
     }

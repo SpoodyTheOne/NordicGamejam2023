@@ -102,11 +102,13 @@ MonoBehaviour:
   weapon: {fileID: 0}
   epa: {fileID: 0}
   gc: {fileID: 1225561536675632560}
+  playerInput: {fileID: 1468015445290420191}
   characterClass: 2
-  musketeer: {fileID: 2249966268244534680, guid: 34d89f7c9a835b84eb88623252e02c35, type: 3}
-  thunderBird: {fileID: 4630005661951505168, guid: c9c4011a3e25be547b62b1d6290eebf7, type: 3}
-  caveMan: {fileID: 5771301765954954270, guid: f7e7ee7bcc21dfb4b9b98983b5532df1, type: 3}
+  musketeer: {fileID: 2249966268244534680, guid: 9ce9c6cf5bd16dc44b44550ad842ffd6, type: 3}
+  thunderBird: {fileID: 4630005661951505168, guid: c7945151d063fcc4a9142fe469526cf8, type: 3}
+  caveMan: {fileID: 5771301765954954270, guid: 024cf050b2481cc43a0fb6ac772fe575, type: 3}
   ready: 0
+  virtualCursor: {fileID: 3452748134243944720}
 --- !u!114 &1468015445290420191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,13 +136,13 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 4627258488587378523}
+        m_TargetAssemblyTypeName: ThePlayerManager, Assembly-CSharp
+        m_MethodName: Move
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -150,13 +152,13 @@ MonoBehaviour:
     m_ActionName: Player/Move[/XInputControllerWindows/leftStick/up,/XInputControllerWindows1/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows1/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows1/leftStick/left,/XInputControllerWindows/leftStick/right,/XInputControllerWindows1/leftStick/right,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 4627258488587378523}
+        m_TargetAssemblyTypeName: ThePlayerManager, Assembly-CSharp
+        m_MethodName: Attack
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -166,13 +168,13 @@ MonoBehaviour:
     m_ActionName: Player/Attack[/Mouse/leftButton,/XInputControllerWindows/buttonWest,/XInputControllerWindows1/buttonWest,/XInputControllerWindows/rightShoulder,/XInputControllerWindows1/rightShoulder]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 4627258488587378523}
+        m_TargetAssemblyTypeName: ThePlayerManager, Assembly-CSharp
+        m_MethodName: RightClickAbility
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -182,13 +184,13 @@ MonoBehaviour:
     m_ActionName: Player/RightClickAbility[/Mouse/rightButton,/XInputControllerWindows/leftTrigger,/XInputControllerWindows1/leftTrigger]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 4627258488587378523}
+        m_TargetAssemblyTypeName: ThePlayerManager, Assembly-CSharp
+        m_MethodName: EAbility
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -197,7 +199,19 @@ MonoBehaviour:
     m_ActionId: 58078044-5d57-4cc2-9f57-74b66879ff3b
     m_ActionName: Player/EAbility[/Keyboard/e,/XInputControllerWindows/rightTrigger,/XInputControllerWindows1/rightTrigger]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1225561536675632560}
+        m_TargetAssemblyTypeName: GamepadCursor, Assembly-CSharp
+        m_MethodName: Navigate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: c2ade671-8a2a-4dce-a65e-98d4908de68f
     m_ActionName: Player/GamePadE[/XInputControllerWindows/rightStick/up,/XInputControllerWindows1/rightStick/up,/XInputControllerWindows/rightStick/down,/XInputControllerWindows1/rightStick/down,/XInputControllerWindows/rightStick/left,/XInputControllerWindows1/rightStick/left,/XInputControllerWindows/rightStick/right,/XInputControllerWindows1/rightStick/right]
   - m_PersistentCalls:

@@ -11,7 +11,7 @@ public class GamepadCursor : MonoBehaviour
     [SerializeField]
     private PlayerInput playerInput;
     [SerializeField]
-    private RectTransform cursorTransform;
+    public RectTransform cursorTransform;
     [SerializeField]
     private Canvas canvas;
     [SerializeField]
