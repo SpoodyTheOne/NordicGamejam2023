@@ -21,4 +21,8 @@ public abstract class Weapon : MonoBehaviour
         Quaternion rot = Quaternion.AngleAxis(angle - 90, Vector3.forward);
         transform.rotation = rot;
     }
+    public void Woosh()
+    {
+        GetComponent<AudioSource>().Play();
+    }
 }

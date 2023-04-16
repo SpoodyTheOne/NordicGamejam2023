@@ -18,12 +18,14 @@ public class EnemyBehavior : IDamagable
 
     private GameObject[] players;
     private GameObject currentPlayerToTarget;
+    [SerializeField] private ParticleSystem pfx;
     private float lastDistance;
 
     public EnemySpawner spawner;
 
     private void Start()
     {
+        animator.SetBool("isMoving", true);
         players = GameObject.FindGameObjectsWithTag("Player");
         FindPlayerToTarget();
     }
@@ -63,22 +65,42 @@ public class EnemyBehavior : IDamagable
             }
         }
 
-        if (animator != null)
-        {
-            animator.SetFloat("MoveX", aIPathScript.velocity.x);
-            animator.SetFloat("MoveY", aIPathScript.velocity.y);
+        //if (animator != null)
+        //{
+        //    animator.SetFloat("MoveX", aIPathScript.velocity.x);
+        //    animator.SetFloat("MoveY", aIPathScript.velocity.y);
 
-            if (aIPathScript.canMove == true)
-            {
-                animator.SetBool("isMoving", true);
-            }
-            else
-            {
-                animator.SetBool("isMoving", false);
-            }
-        }
+        //    if (aIPathScript.canMove == true)
+        //        animator.SetBool("isMoving", true);
+        //    else
+        //        animator.SetBool("isMoving", false);
+        //}
 
         FindPlayerToTarget();
+    }
+
+    public void Stun(float stunTime)
+    {
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+        pfx.Play();
+        pfx.loop = true;
+
+        GetComponentInChildren<PointTowardsTarget>().enabled = false;
+        GetComponentInChildren<InstantiateOverTime>().enabled = false;
+        animator.SetBool("isMoving", false);
+
+        Invoke("UnStun", stunTime);
+    }
+    private void UnStun()
+    {
+        pfx.loop = false;
+
+        GetComponentInChildren<PointTowardsTarget>().enabled = true;
+        GetComponentInChildren<InstantiateOverTime>().enabled = true;
+        animator.SetBool("isMoving", true);
+
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
     public void FindPlayerToTarget()
@@ -101,8 +123,13 @@ public class EnemyBehavior : IDamagable
     {
         base.Die();
         
-        spawner.OnEnemyDied(this.gameObject);
+        spawner.OnEnemyDied(gameObject);
 
         Destroy(gameObject);
+    }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        TakeDamage(GameObject.Find("Harry Musketeer"), 10f);
     }
 }
