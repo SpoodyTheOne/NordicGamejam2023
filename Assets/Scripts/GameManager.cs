@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         currentRoom = StartRoom.GetComponent<RoomController>();
-        currentRoom.NextWave();
+        //currentRoom.NextWave();
     }
 
     // Update is called once per frame
