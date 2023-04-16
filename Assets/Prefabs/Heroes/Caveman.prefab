@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 985243833792416473}
   - component: {fileID: 2456613388493434808}
   - component: {fileID: 8504453601283645977}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: humanForm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 8237088771796976432}
   - component: {fileID: 1722999137131707312}
   - component: {fileID: 6940346606858924776}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WeaponHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -311,13 +311,13 @@ GameObject:
   - component: {fileID: 8939570024517671628}
   - component: {fileID: 3633621949106343751}
   - component: {fileID: 3761038593185658688}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Caveman
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1351365413866378115
 Transform:
   m_ObjectHideFlags: 0
@@ -333,7 +333,7 @@ Transform:
   - {fileID: 985243833792416473}
   - {fileID: 3988880281598710702}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &453372757108615582
 MonoBehaviour:
@@ -347,7 +347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fd0dc7f7427b2946b41b29f0fa43f90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Health: 1
+  _Health: 10
   _Dead: 0
   IFrameSeconds: 0.6
   playerSprite: {fileID: 0}
@@ -364,9 +364,11 @@ MonoBehaviour:
   specialCost: 20
   commonCost: 1
   continouosConsumption: 1
-  specialCooldown: 0
+  specialCooldown: 10
   commonCooldown: 0
   rosemary: {fileID: 0}
+  healthBar: {fileID: 0}
+  maxHealth: 0
   anim: {fileID: 0}
   pfx: {fileID: 358770066684181008}
   virtualCursor: {fileID: 0}
@@ -541,7 +543,7 @@ GameObject:
   - component: {fileID: 4756985142139791922}
   - component: {fileID: 3961836715338724310}
   - component: {fileID: 8874135012833290176}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: baton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -687,7 +689,7 @@ GameObject:
   - component: {fileID: 4516685741299170469}
   - component: {fileID: 358770066684181008}
   - component: {fileID: 4451661876935949566}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundDust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
