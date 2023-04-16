@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 public abstract class Player : IDamagable
@@ -26,8 +27,14 @@ public abstract class Player : IDamagable
     private float keptSpeed;
     #endregion
     #region RosemaryMeter
-    float maxSpice = 10;
-    float currentSpice = 10;
+    public float maxSpice = 100;
+    public float currentSpice = 100;
+
+    public float specialCost, commonCost;
+    public bool continouosConsumption;
+
+    public float specialCooldown, commonCooldown;
+    public Image rosemary;
     #endregion
     [HideInInspector] public Animator anim;
     public ParticleSystem pfx;
@@ -61,6 +68,11 @@ public abstract class Player : IDamagable
         movement.y = movementInput.y;
 
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        float tempSpice = currentSpice / 100f;
+        Debug.Log(tempSpice);
+
+        rosemary.fillAmount = tempSpice;
         #endregion
         #region Animation
         if (movement.magnitude > 0)

@@ -14,11 +14,12 @@ public class CavemanPlayer : Player
     {
         base.Update();
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && currentSpice >= specialCost)
             Target();
     }
     private void Target()
     {
+        currentSpice -= specialCost;
         var target = Instantiate(fx, mousePos, Quaternion.identity);
     }
 

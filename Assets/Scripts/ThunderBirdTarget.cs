@@ -11,6 +11,8 @@ public class ThunderBirdTarget : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.E))
         {
+            GameObject.Find("Wings").GetComponent<Animator>().SetTrigger("WingDown");
+
             GameObject.Find("Thunderbird").gameObject.transform.position = transform.position;
             GameObject.Find("Thunderbird").gameObject.GetComponent<ThunderBirdPlayer>().BirdFormDeactivate();
             Destroy(gameObject);
