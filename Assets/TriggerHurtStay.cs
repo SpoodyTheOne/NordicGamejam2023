@@ -13,10 +13,6 @@ public class TriggerHurtStay : IHurter
         if (otherDamagable)
         {
             otherDamagable.TakeDamage(this.gameObject, this.Damage);
-            otherDamagable.TakeDamage(this.gameObject, this.Damage);
-            otherDamagable.TakeDamage(this.gameObject, this.Damage);
-            otherDamagable.TakeDamage(this.gameObject, this.Damage);
-            otherDamagable.TakeDamage(this.gameObject, this.Damage);
         }
 
         OnDamage(other);
