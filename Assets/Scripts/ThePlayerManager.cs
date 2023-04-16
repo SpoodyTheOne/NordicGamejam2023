@@ -24,6 +24,8 @@ public class ThePlayerManager : MonoBehaviour
     private MusketeerPlayer mp = null;
     private CavemanPlayer cp = null;
 
+    public Camera theCamera;
+
     public void Start()
     {
         epa = GameObject.Find("EpicPlayerAssigner").GetComponent<EpicPlayerAssigner>();
@@ -92,6 +94,9 @@ public class ThePlayerManager : MonoBehaviour
             player.virtualCursor = gc.cursorTransform;
             cp.img = epa.cavemanCooldown;
         }
+
+        theCamera = Camera.main;
+        theCamera.GetComponent<CameraController>().targets.Add(player.gameObject.transform);
 
         gc.menuCursor = false;
 
