@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using UnityEngine.InputSystem;
 
 public abstract class Player : IDamagable
@@ -36,6 +37,10 @@ public abstract class Player : IDamagable
     public float specialCooldown, commonCooldown;
     public Image rosemary;
     #endregion
+
+    public Image healthBar;
+    public float maxHealth;
+
     [HideInInspector] public Animator anim;
     public ParticleSystem pfx;
 
@@ -57,6 +62,7 @@ public abstract class Player : IDamagable
         UseHearts = true;
 
         #endregion
+        maxHealth = Health;
     }
 
     public virtual void Update()
@@ -71,7 +77,14 @@ public abstract class Player : IDamagable
 
         float tempSpice = currentSpice / 100f;
 
+        float tempHealth = (1 / maxHealth) * Health;
+
+        healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, tempHealth, 10f * Time.deltaTime);
+
         rosemary.fillAmount = tempSpice;
+        rosemary.GetComponentInChildren<TextMeshProUGUI>().text = currentSpice + " / " + maxSpice;
+
+
         #endregion
         #region Animation
         if (movement.magnitude > 0)
@@ -104,6 +117,8 @@ public abstract class Player : IDamagable
 
     public override bool TakeDamage(GameObject attacker, float amount)
     {
+
+
         bool d = base.TakeDamage(attacker, amount);
 
         return d;

@@ -5040,7 +5040,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3340303156800238855
 Transform:
   m_ObjectHideFlags: 0
@@ -5056,7 +5056,7 @@ Transform:
   - {fileID: 1028754419775049938}
   - {fileID: 1823301371884041936}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8167411474238800360
 MonoBehaviour:
@@ -5082,6 +5082,14 @@ MonoBehaviour:
   lookDir: {x: 0, y: 0}
   speed: 4
   damage: 0
+  maxSpice: 100
+  currentSpice: 100
+  specialCost: 40
+  commonCost: 4
+  continouosConsumption: 1
+  specialCooldown: 8
+  commonCooldown: 0
+  rosemary: {fileID: 0}
   anim: {fileID: 0}
   pfx: {fileID: 7618926041048393610}
   virtualCursor: {fileID: 0}
@@ -5089,6 +5097,7 @@ MonoBehaviour:
   playerInput: {fileID: 0}
   Gamepad: 0
   fx: {fileID: 1504018919375734988, guid: d33e26ea09f3d8f44840b96396238b61, type: 3}
+  img: {fileID: 0}
 --- !u!50 &4608476339051501307
 Rigidbody2D:
   serializedVersion: 4

@@ -14,7 +14,7 @@ public abstract class IDamagable : MonoBehaviour
 
     protected float IFrameTime    = 0.0f;
     [SerializeField]
-    protected float IFrameSeconds = 0.6f;
+    protected float IFrameSeconds = 0.08f;
     protected bool UseHearts      = false;
 
     public virtual bool TakeDamage(GameObject attacker, float Amount)

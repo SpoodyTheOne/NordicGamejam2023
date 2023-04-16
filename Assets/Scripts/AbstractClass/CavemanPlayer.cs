@@ -1,11 +1,15 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CavemanPlayer : Player
 {
     [SerializeField] private GameObject fx;
 
     private bool go = true;
+
+    private bool coolDown = false;
+    public Image img;
     public void StartPFX()
     {
         pfx.Play();
@@ -15,6 +19,17 @@ public class CavemanPlayer : Player
     public override void Update()
     {
         base.Update();
+
+        if (coolDown)
+        {
+            img.fillAmount -= 1 / specialCooldown * Time.deltaTime;
+
+            if (img.fillAmount <= 0)
+            {
+                img.fillAmount = 0;
+                coolDown = false;
+            }
+        }
 
         if (Input.GetMouseButton(1) && continouosConsumption && go)
         {
@@ -29,6 +44,12 @@ public class CavemanPlayer : Player
     }
     private void Target()
     {
+        if (coolDown)
+            return;
+
+        coolDown = true;
+        img.fillAmount = 1;
+
         currentSpice -= specialCost;
         var target = Instantiate(fx, mousePos, Quaternion.identity);
     }

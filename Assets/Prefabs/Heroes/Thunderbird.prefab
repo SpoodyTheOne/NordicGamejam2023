@@ -119,7 +119,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.045105398, y: 0.0046696067}
+  m_Offset: {x: -0.030456781, y: 0.26541334}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -130,7 +130,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7224056, y: 1.3345779}
+  m_Size: {x: 0.83763397, y: 0.48496294}
   m_EdgeRadius: 0
 --- !u!114 &5707958597146829748
 MonoBehaviour:
@@ -667,7 +667,7 @@ Transform:
   - {fileID: 8578937439621500812}
   - {fileID: 9127329332619545949}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3691558579091440000
 MonoBehaviour:
@@ -681,7 +681,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7587bbf6dbaef4343b24724a97d475d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Health: 5
+  _Health: 6
   _Dead: 0
   IFrameSeconds: 0.6
   playerSprite: {fileID: 0}
@@ -693,6 +693,14 @@ MonoBehaviour:
   lookDir: {x: 0, y: 0}
   speed: 4
   damage: 2
+  maxSpice: 100
+  currentSpice: 100
+  specialCost: 30
+  commonCost: 5
+  continouosConsumption: 0
+  specialCooldown: 8
+  commonCooldown: 2
+  rosemary: {fileID: 0}
   anim: {fileID: 0}
   pfx: {fileID: 4257909932300804795}
   virtualCursor: {fileID: 0}
@@ -706,6 +714,9 @@ MonoBehaviour:
   - {fileID: 2920213201490609288, guid: 3efd4de9cb7db644b83cc1bddac9c199, type: 3}
   - {fileID: 1504018919375734988, guid: 3bc58350ba745a74ab5315ed52235b1d, type: 3}
   - {fileID: 755684893714558793, guid: 304f160503f75294881437fc029479b3, type: 3}
+  img:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!50 &1882049327491048599
 Rigidbody2D:
   serializedVersion: 4

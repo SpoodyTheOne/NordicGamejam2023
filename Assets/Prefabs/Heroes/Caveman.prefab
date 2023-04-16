@@ -333,7 +333,7 @@ Transform:
   - {fileID: 985243833792416473}
   - {fileID: 3988880281598710702}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &453372757108615582
 MonoBehaviour:
@@ -359,6 +359,14 @@ MonoBehaviour:
   lookDir: {x: 0, y: 0}
   speed: 4
   damage: 0
+  maxSpice: 100
+  currentSpice: 100
+  specialCost: 20
+  commonCost: 1
+  continouosConsumption: 1
+  specialCooldown: 0
+  commonCooldown: 0
+  rosemary: {fileID: 0}
   anim: {fileID: 0}
   pfx: {fileID: 358770066684181008}
   virtualCursor: {fileID: 0}
@@ -366,6 +374,7 @@ MonoBehaviour:
   playerInput: {fileID: 3761038593185658688}
   Gamepad: 0
   fx: {fileID: 1504018919375734988, guid: 1b17de387bc9d784e96bb4d7d8d113a0, type: 3}
+  img: {fileID: 0}
 --- !u!50 &8939570024517671628
 Rigidbody2D:
   serializedVersion: 4

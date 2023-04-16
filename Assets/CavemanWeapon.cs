@@ -64,7 +64,7 @@ public class CavemanWeapon : Weapon
     }
     private void StopCharge()
     {
-        GetComponentInChildren<TriggerHurt>().Damage = Mathf.Ceil(currentScale) * 2;
+        GetComponentInChildren<TriggerHurt>().Damage = Mathf.Ceil(currentScale) * 4;
 
         charging = false;
 

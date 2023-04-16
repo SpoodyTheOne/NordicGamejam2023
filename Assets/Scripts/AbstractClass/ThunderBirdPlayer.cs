@@ -2,6 +2,7 @@ using UnityEngine;
 using EZCameraShake;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class ThunderBirdPlayer : Player
 {
@@ -19,6 +20,10 @@ public class ThunderBirdPlayer : Player
 
     private bool tp;
 
+    private bool coolDown1 = false, coolDown2 = false;
+
+    public Image[] img;
+
     public override void Awake()
     {
         base.Awake();
@@ -28,6 +33,38 @@ public class ThunderBirdPlayer : Player
     }
     public override void Update()
     {
+        if (coolDown1)
+        {
+            img[0].fillAmount -= 1 / commonCooldown * Time.deltaTime;
+
+            if (img[0].fillAmount <= 0)
+            {
+                img[0].fillAmount = 0;
+                coolDown1 = false;
+            }
+        }
+
+        if (coolDown2)
+        {
+            img[1].fillAmount -= 1 / specialCooldown * Time.deltaTime;
+
+            if (img[1].fillAmount <= 0)
+            {
+                img[1].fillAmount = 0;
+                coolDown2 = false;
+            }
+        }
+
+        float tempSpice = currentSpice / 100f;
+
+        float tempHealth = (1 / maxHealth) * Health;
+
+        healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, tempHealth, 10f * Time.deltaTime);
+
+
+        rosemary.fillAmount = tempSpice;
+        rosemary.GetComponentInChildren<TextMeshProUGUI>().text = currentSpice + " / " + maxSpice;
+
         rosemary.fillAmount = Mathf.Lerp(rosemary.fillAmount, currentSpice / 100f, 100f * Time.deltaTime);
 
         virtualMousePos = Camera.main.ScreenToWorldPoint(new Vector2(virtualCursor.position.x, virtualCursor.position.y));
@@ -146,6 +183,19 @@ public class ThunderBirdPlayer : Player
     }
     public void TeleportTarget()
     {
+        if (coolDown2)
+            return;
+
+        coolDown2 = true;
+        img[1].fillAmount = 1;
+
+        if (currentSpice < specialCost)
+            return;
+
+        tp = true;
+
+        GameObject.Find("Wings").GetComponent<Animator>().SetTrigger("Wing");
+
         currentSpice -= specialCost;
         var target = Instantiate(fx[1], mousePos, Quaternion.identity);
     }
@@ -161,12 +211,18 @@ public class ThunderBirdPlayer : Player
         if (ctx.canceled)
             BirdFormDeactivate();
 
+        if (coolDown1)
+            return;
+
         if (currentSpice < commonCost)
             return;
 
         if (ctx.performed)
             if(!birdForm && !tp)
             {
+                coolDown1 = true;
+                img[0].fillAmount = 1;
+
                 currentSpice -= commonCost;
 
                 effect = Instantiate(fx[0], gameObject.transform.position, Quaternion.identity);
@@ -203,17 +259,10 @@ public class ThunderBirdPlayer : Player
             GameObject.Find("Wings").GetComponent<Animator>().SetTrigger("WingDown");
         }
 
-        if (currentSpice < specialCost)
-            return;
-
         if (ctx.performed)
         {
             if (!birdForm && !tp)
             {
-                tp = true;
-
-                GameObject.Find("Wings").GetComponent<Animator>().SetTrigger("Wing");
-
                 if (!Gamepad)
                     TeleportTarget();
             }
