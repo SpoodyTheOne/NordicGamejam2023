@@ -47,7 +47,7 @@ public class RoomController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.name);
+        //Debug.Log(other.name);
 
         if (((1<<other.gameObject.layer) & WhoCanStarRoomREEEE) == 0) // Check if part of canHit layermask
             return;
@@ -78,12 +78,16 @@ public class RoomController : MonoBehaviour
 
     public void NextWave()
     {
+        if (EnemiesAlive > 0)
+            return;
+
         _Wave++;
 
         if (_Wave >= Waves.Count) {
             RoomExit.SetActive(false);
             RoomEntrance.SetActive(false);
             IsDone = true;
+            Debug.Log("Finished room");
             return;
         }
 
