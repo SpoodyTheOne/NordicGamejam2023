@@ -7,9 +7,12 @@ public class MoveUp : MonoBehaviour
     public Rigidbody2D rb;
     public bool moveNow;
 
+    void Start()
+    {
+        rb.velocity = transform.up * speed;
+    }
+
     private void Update()
     {
-        if (moveNow)
-            rb.velocity = transform.up * speed * Time.deltaTime;
     }
 }
