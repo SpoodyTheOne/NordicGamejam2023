@@ -16,9 +16,9 @@ public class UIManager : MonoBehaviour
 
     public void Update()
     {
-        for (int i = 0; i < players.Length; i++)
-        {
-            texts[i].text = "HP = " + players[i].GetComponent<Player>().Health;
-        }
+        //for (int i = 0; i < players.Length; i++)
+        //{
+        //    texts[i].text = "HP = " + players[i].GetComponent<Player>().Health;
+        //}
     }
 }

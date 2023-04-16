@@ -28,6 +28,8 @@ public class ThunderBirdPlayer : Player
     }
     public override void Update()
     {
+        rosemary.fillAmount = Mathf.Lerp(rosemary.fillAmount, currentSpice / 100f, 100f * Time.deltaTime);
+
         virtualMousePos = Camera.main.ScreenToWorldPoint(new Vector2(virtualCursor.position.x, virtualCursor.position.y));
 
         if (!birdForm)
@@ -75,9 +77,7 @@ public class ThunderBirdPlayer : Player
             BirdFormActivate();
 
         if (movement.magnitude > 0)
-        {
             anim.SetBool("Walking", true);
-        }
         else
         {
             pfx.loop = false;
@@ -97,12 +97,9 @@ public class ThunderBirdPlayer : Player
     private void BirdFormActivate()
     {
         if (Gamepad)
-        {
             lookDir = virtualMousePos - rb.position;
-        } else
-        {
+        else
             lookDir = mousePos - rb.position;
-        }
 
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
 
@@ -121,13 +118,9 @@ public class ThunderBirdPlayer : Player
         playerForms[0].SetActive(false);
 
         if(Gamepad)
-        {
             transform.position = Vector2.MoveTowards(transform.position, new Vector2(virtualMousePos.x, virtualMousePos.y), speed * Time.deltaTime);
-        }
         else
-        {
             transform.position = Vector2.MoveTowards(transform.position, new Vector2(mousePos.x, mousePos.y), speed * Time.deltaTime);
-        }
 
         if (timeElapsed > flyTime)
             BirdFormDeactivate();
@@ -153,6 +146,7 @@ public class ThunderBirdPlayer : Player
     }
     public void TeleportTarget()
     {
+        currentSpice -= specialCost;
         var target = Instantiate(fx[1], mousePos, Quaternion.identity);
     }
 
@@ -164,10 +158,17 @@ public class ThunderBirdPlayer : Player
 
     public void RightClickAbility(InputAction.CallbackContext ctx)
     {
+        if (ctx.canceled)
+            BirdFormDeactivate();
+
+        if (currentSpice < commonCost)
+            return;
+
         if (ctx.performed)
-        {
             if(!birdForm && !tp)
             {
+                currentSpice -= commonCost;
+
                 effect = Instantiate(fx[0], gameObject.transform.position, Quaternion.identity);
                 Destroy(effect, 1.2f);
 
@@ -176,53 +177,45 @@ public class ThunderBirdPlayer : Player
                 timeElapsed = 0;
                 birdForm = true;
             }
-        }
-
-        if (ctx.canceled)
-        {
-            BirdFormDeactivate();
-        }
     }
 
     public void EAbility(InputAction.CallbackContext ctx)
     {
+        if (ctx.canceled && tp)
+        {
+            if (Gamepad)
+            {
+                gameObject.transform.position = virtualMousePos;
+                gameObject.GetComponent<ThunderBirdPlayer>().BirdFormDeactivate();
+                var pfx = Instantiate(fx[2], new Vector3(virtualMousePos.x, virtualMousePos.y, 0), Quaternion.identity);
+                Destroy(pfx, 4.1f);
+            }
+            else
+            {
+                var pfx = Instantiate(fx[2], new Vector3(mousePos.x, mousePos.y, 0), Quaternion.identity);
+                Destroy(pfx, 4.1f);
+            }
+
+            tp = false;
+
+            CameraShaker.Instance.ShakeOnce(10f, 10f, 0f, .67f);
+
+            GameObject.Find("Wings").GetComponent<Animator>().SetTrigger("WingDown");
+        }
+
+        if (currentSpice < specialCost)
+            return;
+
         if (ctx.performed)
         {
-            if(!birdForm && !tp)
+            if (!birdForm && !tp)
             {
                 tp = true;
 
                 GameObject.Find("Wings").GetComponent<Animator>().SetTrigger("Wing");
 
                 if (!Gamepad)
-                {
                     TeleportTarget();
-                }
-            }
-        }
-
-        if (ctx.canceled)
-        {
-            if (tp)
-            {
-                if (Gamepad)
-                {
-                    gameObject.transform.position = virtualMousePos;
-                    gameObject.GetComponent<ThunderBirdPlayer>().BirdFormDeactivate();
-                    var pfx = Instantiate(fx[2], new Vector3(virtualMousePos.x, virtualMousePos.y, 0), Quaternion.identity);
-                    Destroy(pfx, 4.1f);
-                }
-                else
-                {
-                    var pfx = Instantiate(fx[2], new Vector3(mousePos.x, mousePos.y, 0), Quaternion.identity);
-                    Destroy(pfx, 4.1f);
-                }
-
-                tp = false;
-
-                CameraShaker.Instance.ShakeOnce(10f, 10f, 0f, .67f);
-
-                GameObject.Find("Wings").GetComponent<Animator>().SetTrigger("WingDown");
             }
         }
     }
