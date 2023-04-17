@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TriggerHurtStay : IHurter
 {
-    private void OnTriggerStay2D(Collider2D other, bool sa)
+    private void OnTriggerStay2D(Collider2D other)
     {
         
         if (((1 << other.gameObject.layer) & canHit) == 0) // Check if part of canHit layermask

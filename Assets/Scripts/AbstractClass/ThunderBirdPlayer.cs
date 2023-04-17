@@ -285,7 +285,7 @@ public class ThunderBirdPlayer : Player
 
         if (ctx.performed)
         {
-            if (!birdForm && !tp)
+            if (!birdForm && !tp && !coolDown2)
             {
                 tp = true;
                 Debug.Log("He");
