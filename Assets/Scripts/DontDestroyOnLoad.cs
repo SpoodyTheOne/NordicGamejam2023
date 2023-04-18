@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class DontDestroyOnLoad : MonoBehaviour
 {
-    public float timeToDestroy;
+    //public float timeToDestroy;
 
-    private void Update()
+    //private void Update()
+    //{
+    //    timeToDestroy -= Time.deltaTime;
+
+    //    if (timeToDestroy <= 0)
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //}
+
+    private void Awake()
     {
-        timeToDestroy -= Time.deltaTime;
-
-        if (timeToDestroy <= 0)
-        {
-            Destroy(gameObject);
-        }
+        DontDestroyOnLoad(this.gameObject);
     }
 }

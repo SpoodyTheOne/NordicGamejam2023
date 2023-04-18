@@ -24,7 +24,7 @@ public class CavemanWeapon : Weapon
         if (Input.GetMouseButtonUp(0) && charging && !blocking)
             StopCharge();
 
-        if (Input.GetMouseButtonDown(1) && !blocking && !charging)
+        if (Input.GetMouseButtonDown(1) && !blocking && !charging && GetComponentInParent<Player>().currentSpice > GetComponentInParent<Player>().commonCost)
         {
             GetComponentInParent<Player>().speed /= 2f;
             blocking = true;
@@ -65,7 +65,7 @@ public class CavemanWeapon : Weapon
     }
     private void StopCharge()
     {
-        GetComponentInChildren<TriggerHurt>().Damage = Mathf.Ceil(currentScale) * 4;
+        GetComponentInChildren<TriggerHurt>().Damage = Mathf.Ceil(currentScale) * 3;
 
         charging = false;
 

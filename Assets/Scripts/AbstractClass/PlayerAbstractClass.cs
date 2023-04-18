@@ -24,6 +24,8 @@ public abstract class Player : IDamagable
     [Header("PlayerVariables")]
     public float speed = 0;
     public float damage = 0;
+
+    public int id = 0;
     [Space(10)]
     private float keptSpeed;
     #endregion
